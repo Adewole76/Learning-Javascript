@@ -146,3 +146,13 @@ const student ={
   grades: [85, 92, 78]
 }
 console.log(getDeepValue(student, 'grades.0'))
+
+const person = {
+  name: 'Oluwasegun',
+  greet: function(){
+    console.log('Hello, my name is' + person.name)
+  }
+}
+const extractedGreet = person.greet;
+
+extractedGreet()
