@@ -100,7 +100,7 @@ const mergeObjects = (obj1, obj2) => {
     }else if(!result[particularProperty] && obj1[particularProperty] && obj2[particularProperty])
       result[particularProperty] = obj2[particularProperty]
     }
-    for(let i =0; i<obj2Keys.length; i++){
+    for(let i = 0; i< obj2Keys.length; i++){
       let particularProperty2 = obj2Keys[i]
       if(!result[particularProperty2] && !obj1[particularProperty2]){
         result[particularProperty2] = obj2[particularProperty2]
@@ -128,3 +128,23 @@ console.log(mergeObjects(firstObject, secondObject))
 const firstObjectKeys = Object.keys(firstObject)
 console.log(firstObjectKeys)
 
+const getDeepValue = (students, studentInfo) => {
+ if(students[studentInfo]){
+  return students[studentInfo]
+ }else if(!students[studentInfo]){
+  return undefined
+ }
+}
+const student ={
+  name: 'Alice',
+  address: {
+    city: 'lagos',
+    country : 'Nigeria',
+    coordinates:{
+      lat: 6.5244,
+      lng: 3.3792
+    }
+  },
+  grades: [85, 92, 78]
+}
+console.log(getDeepValue(student, 'address.city'))
