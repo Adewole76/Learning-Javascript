@@ -129,11 +129,9 @@ const firstObjectKeys = Object.keys(firstObject)
 console.log(firstObjectKeys)
 
 const getDeepValue = (students, studentInfo) => {
- if(students[studentInfo]){
-  return students[studentInfo]
- }else if(!students[studentInfo]){
-  return undefined
- }
+
+  return studentInfo.split('.').reduce((acc, part) => acc && acc[part], students);
+ 
 }
 const student ={
   name: 'Alice',
@@ -147,4 +145,4 @@ const student ={
   },
   grades: [85, 92, 78]
 }
-console.log(getDeepValue(student, 'address.city'))
+console.log(getDeepValue(student, 'grades.0'))
