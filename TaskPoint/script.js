@@ -25,6 +25,22 @@ const deleteTask = (arr) =>{
     })
   }
 }
+const editTasks = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(taskArray[i]); 
+    
+    if (arr[i].value && arr[i].value.trim() !== "") {
+      taskArray[i].name = arr[i].value;
+      console.log(taskArray)
+    } else {
+      console.log('write something in the edit box');
+    }
+  }
+  mapTaskArray()
+  // Move this OUTSIDE the for-loop
+  localStorage.setItem("tasks", JSON.stringify(taskArray));
+};
+
 //function to map over taskArray after deleting or adding objects to taskArray
 const mapTaskArray = () => {
   let MappedTaskArray = taskArray.map((task) => 
@@ -55,6 +71,11 @@ const mapTaskArray = () => {
   editButtons[i].addEventListener('click', function(){
     taskEditInputs[i].classList.remove('hidden');
     actualEditbtns[i].classList.remove('hidden')
+  })
+ }
+ for(let i = 0; i<actualEditbtns.length; i++){
+  actualEditbtns[i].addEventListener('click', function(){
+    editTasks(taskEditInputs);
   })
  }
  
@@ -99,13 +120,3 @@ const showEditInput = (arr) => {
     })
   }
 }
-const editTasks = (arr) =>{
-  for(let i = 0; i < arr.length; i++){
-    arr[i].addEventListener('click', function(){
-      arr[i].classList.remove('hidden');
-     taskArray[i].name = arr[i].value
-     
-      localStorage.setItem("tasks", JSON.stringify(taskArray));
-    })
-  
-}}
