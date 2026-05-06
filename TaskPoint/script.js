@@ -31,14 +31,32 @@ const mapTaskArray = () => {
   ` <div class="task-div">
    <h1>${task.name}</h1>
    <p class="task-status">${task.status}</p>
+   <button class='edit-btn'>Edit</button>
    <button class='del-button'>Delete</button>
-   <input class="edit-task-input type="text" placeholder="edit the task">
+   <input class="edit-task-input" type="text" placeholder="edit this task"><button class='edit'>click to edit</button>
    </div>`
  );
  
+ //task Object iterable elements
  taskContainer.innerHTML = MappedTaskArray;
- const deleteButtons = document.querySelectorAll('.del-button')
+ const deleteButtons = document.querySelectorAll('.del-button');
  console.log(deleteButtons);
+ const editButtons = document.querySelectorAll('.edit-btn');
+ console.log(editButtons);
+ const taskEditInputs = document.querySelectorAll('.edit-task-input');
+ console.log(taskEditInputs);
+ const actualEditbtns = document.querySelectorAll('.edit');
+ console.log(actualEditbtns);
+ for(let i=0; i < taskEditInputs.length;i++){
+  taskEditInputs[i].classList.add('hidden');
+  actualEditbtns[i].classList.add('hidden');
+ }
+ for(let i=0;i<editButtons.length;i++){
+  editButtons[i].addEventListener('click', function(){
+    taskEditInputs[i].classList.remove('hidden');
+    actualEditbtns[i].classList.remove('hidden')
+  })
+ }
  
  deleteTask(deleteButtons)
 //  for(let i = 0; i < deleteButtons.length; i++){
@@ -74,3 +92,20 @@ addTaskButton.addEventListener('click', function(){
     addTask(taskInput.value)
   }
 })
+const showEditInput = (arr) => {
+  for (let i= 0; i<arr.length; i++){
+    arr[i].addEventListener('click', function(){
+      console.log(taskArray[i]);
+    })
+  }
+}
+const editTasks = (arr) =>{
+  for(let i = 0; i < arr.length; i++){
+    arr[i].addEventListener('click', function(){
+      arr[i].classList.remove('hidden');
+     taskArray[i].name = arr[i].value
+     
+      localStorage.setItem("tasks", JSON.stringify(taskArray));
+    })
+  
+}}
