@@ -43,6 +43,22 @@ const editTasks = (arr) => {
   localStorage.setItem("tasks", JSON.stringify(taskArray));
 };
 
+const editTasksStatus = (arr) => {
+  for(let i = 0; i<arr.length; i++){
+    console.log(taskArray[i])
+    if (arr[i].value) {
+      taskArray[i].status = arr[i].value;
+      console.log(taskArray)
+    } else {
+      taskArray[i].status = 'Todo'
+    }
+  }
+  mapTaskArray()
+  // Move this OUTSIDE the for-loop
+  localStorage.setItem("tasks", JSON.stringify(taskArray));
+  }
+
+
 //function to map over taskArray after deleting or adding objects to taskArray
 const mapTaskArray = () => {
   let MappedTaskArray = taskArray.map((task) => 
@@ -75,19 +91,24 @@ const mapTaskArray = () => {
  console.log(actualEditbtns);
  const changeTaskStatusInputs = document.querySelectorAll('.change-task-status')
  console.log(changeTaskStatusInputs)
+
+ 
  for(let i=0; i < taskEditInputs.length;i++){
   taskEditInputs[i].classList.add('hidden');
   actualEditbtns[i].classList.add('hidden');
+  changeTaskStatusInputs[i].classList.add('hidden');
  }
  for(let i=0;i<editButtons.length;i++){
   editButtons[i].addEventListener('click', function(){
     taskEditInputs[i].classList.remove('hidden');
-    actualEditbtns[i].classList.remove('hidden')
+    changeTaskStatusInputs[i].classList.remove('hidden');
+    actualEditbtns[i].classList.remove('hidden');
   })
  }
  for(let i = 0; i<actualEditbtns.length; i++){
   actualEditbtns[i].addEventListener('click', function(){
     editTasks(taskEditInputs);
+    editTasksStatus(changeTaskStatusInputs);
   })
  }
  
