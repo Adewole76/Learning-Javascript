@@ -1,17 +1,41 @@
 //DOM manipulation variables and selectors
-const taskInput = document.querySelector('.add-task-input')
-console.log(taskInput);
-const addTaskButton = document.querySelector('.add-task-btn')
-console.log(addTaskButton)
+const taskInput = document.querySelector('.add-task-input');
+const addTaskButton = document.querySelector('.add-task-btn');
 const taskContainer = document.querySelector(".task-container")
 let storedTaskArray = localStorage.getItem('tasks')
 let updatedTaskArray = JSON.parse(storedTaskArray)
 let taskArray = updatedTaskArray
 console.log(taskArray);
 const todoFilter = document.querySelector('.todo-filter');
+console.log(todoFilter);
 const InprogressFilter = document.querySelector('.Inprogress-filter');
+console.log(InprogressFilter);
 const DoneFilter = document.querySelector('.Done-filter')
-//Function to delete tasks from taskArray
+console.log(DoneFilter);
+let filteredTasks;
+//Filter for tasks with the same
+const filterTasks = (keyWord) => {
+ let storedTasks = localStorage.getItem('tasks')
+ let updatedTasks = JSON.parse(storedTasks)
+ taskArray = updatedTasks
+ console.log(taskArray)
+ //console.log(taskArray, keyWord);
+ filteredTasks = taskArray.filter(task => task.status === keyWord)
+ console.log(filteredTasks)
+ taskArray = filteredTasks;
+ console.log(taskArray)
+ mapTaskArray();
+}
+todoFilter.addEventListener('click', function(){
+  filterTasks('Todo')
+});
+InprogressFilter.addEventListener('click', function(){
+  filterTasks('Inprogress')
+});
+DoneFilter.addEventListener('click', function(){
+  filterTasks('Completed')
+})
+ //Function to delete tasks from taskArray
 const deleteTask = (arr) =>{
   for(let i = 0; i < arr.length; i++){
     arr[i].addEventListener('click', function(){
@@ -42,7 +66,7 @@ const editTasks = (arr) => {
   // Move this OUTSIDE the for-loop
   localStorage.setItem("tasks", JSON.stringify(taskArray));
 };
-
+//Function to edit tasks Status 
 const editTasksStatus = (arr) => {
   for(let i = 0; i<arr.length; i++){
     console.log(taskArray[i])
@@ -146,4 +170,5 @@ addTaskButton.addEventListener('click', function(){
     addTask(taskInput.value)
   }
 })
+
 
