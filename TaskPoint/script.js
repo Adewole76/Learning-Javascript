@@ -25,6 +25,7 @@ const deleteTask = (arr) =>{
     })
   }
 }
+//function to edit tasks
 const editTasks = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     console.log(taskArray[i]); 
@@ -113,10 +114,4 @@ addTaskButton.addEventListener('click', function(){
     addTask(taskInput.value)
   }
 })
-const showEditInput = (arr) => {
-  for (let i= 0; i<arr.length; i++){
-    arr[i].addEventListener('click', function(){
-      console.log(taskArray[i]);
-    })
-  }
-}
+
