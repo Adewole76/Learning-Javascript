@@ -8,8 +8,9 @@ let storedTaskArray = localStorage.getItem('tasks')
 let updatedTaskArray = JSON.parse(storedTaskArray)
 let taskArray = updatedTaskArray
 console.log(taskArray);
-
-
+const todoFilter = document.querySelector('.todo-filter');
+const InprogressFilter = document.querySelector('.Inprogress-filter');
+const DoneFilter = document.querySelector('.Done-filter')
 //Function to delete tasks from taskArray
 const deleteTask = (arr) =>{
   for(let i = 0; i < arr.length; i++){
@@ -50,7 +51,15 @@ const mapTaskArray = () => {
    <p class="task-status">${task.status}</p>
    <button class='edit-btn'>Edit</button>
    <button class='del-button'>Delete</button>
-   <input class="edit-task-input" type="text" placeholder="edit this task"><button class='edit'>click to edit</button>
+   <input class="edit-task-input" type="text" placeholder="edit this task">
+   <input class="change-task-status" type="text" id="browser-choice" name="browser" list="browsers">
+
+<datalist id="browsers">
+  <option value="Todo">
+  <option value="Inprogress">
+  <option value="Completed">
+</datalist>
+   <button class='edit'>click to edit</button>
    </div>`
  );
  
@@ -64,6 +73,8 @@ const mapTaskArray = () => {
  console.log(taskEditInputs);
  const actualEditbtns = document.querySelectorAll('.edit');
  console.log(actualEditbtns);
+ const changeTaskStatusInputs = document.querySelectorAll('.change-task-status')
+ console.log(changeTaskStatusInputs)
  for(let i=0; i < taskEditInputs.length;i++){
   taskEditInputs[i].classList.add('hidden');
   actualEditbtns[i].classList.add('hidden');
