@@ -7,25 +7,24 @@ let updatedTaskArray = JSON.parse(storedTaskArray)
 let taskArray = updatedTaskArray
 console.log(taskArray);
 const todoFilter = document.querySelector('.todo-filter');
-console.log(todoFilter);
 const InprogressFilter = document.querySelector('.Inprogress-filter');
-console.log(InprogressFilter);
 const DoneFilter = document.querySelector('.Done-filter')
-console.log(DoneFilter);
 let filteredTasks;
+
 //Filter for tasks with the same
 const filterTasks = (keyWord) => {
  let storedTasks = localStorage.getItem('tasks')
  let updatedTasks = JSON.parse(storedTasks)
  taskArray = updatedTasks
- console.log(taskArray)
+
  //console.log(taskArray, keyWord);
  filteredTasks = taskArray.filter(task => task.status === keyWord)
  console.log(filteredTasks)
  taskArray = filteredTasks;
- console.log(taskArray)
  mapTaskArray();
 }
+
+//Event listeners for task filter buttons 
 todoFilter.addEventListener('click', function(){
   filterTasks('Todo')
 });
@@ -35,6 +34,8 @@ InprogressFilter.addEventListener('click', function(){
 DoneFilter.addEventListener('click', function(){
   filterTasks('Completed')
 })
+
+
  //Function to delete tasks from taskArray
 const deleteTask = (arr) =>{
   for(let i = 0; i < arr.length; i++){
@@ -50,7 +51,9 @@ const deleteTask = (arr) =>{
     })
   }
 }
-//function to edit tasks
+
+
+//function to edit tasks name
 const editTasks = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     console.log(taskArray[i]); 
@@ -66,6 +69,8 @@ const editTasks = (arr) => {
   // Move this OUTSIDE the for-loop
   localStorage.setItem("tasks", JSON.stringify(taskArray));
 };
+
+
 //Function to edit tasks Status 
 const editTasksStatus = (arr) => {
   for(let i = 0; i<arr.length; i++){
@@ -85,6 +90,7 @@ const editTasksStatus = (arr) => {
 
 //function to map over taskArray after deleting or adding objects to taskArray
 const mapTaskArray = () => {
+  //HTML rendering for all tasks
   let MappedTaskArray = taskArray.map((task) => 
   ` <div class="task-div">
    <h1>${task.name}</h1>
