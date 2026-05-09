@@ -1,7 +1,122 @@
+body{
+    position: relative;
+    padding: 7% 20% 0 20%;
+    font-family: Arial, Helvetica, sans-serif
+}
+.ribbon{
+  padding: 1em 0 1em 10em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+}
+.sidebar{
+    background-color: rgb(9, 131, 224);
+    position: fixed;
+    filter: brightness(150%);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 90%;
+}
+.sidebar ul{
+    margin-top: 70%;
+    padding: 0;
+}
+ .sidebar .dashboard-link{
+  border-top: 1px solid rgb(139, 138, 138);  
+} 
+.sidebar ul li{
+    list-style-type: none;
+    padding: 1em 0 1em 0;
+    border-bottom: 1px solid rgb(139, 138, 138);
+}
+.main-header{
+    margin: 0;
+}
+.Total-tasks-div{
+    background-color: blue;
+    width: 300px;
+    height: 400px;
+}
+.add-task-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-task-input{
+    width: 60%;
+    padding: 1em 1em 1em 0.5em;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+.filters-section{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-heading{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.filters-section button{
+    background-color: white;
+    border: 3px solid black;
+    padding: 1em 1.5em;
+    border-radius: 2em;
+    font-weight: bold;
+    transition: background-color 0.15s, color 0.15s, font-weight 0.15s, transform 0.15s;
+}
+.filters-section .Inprogress-filter{
+    margin: 0 1em;
+}
+.filters-section .Done-filter{
+    margin: 0 1em 0 0;
+}
+.filters-section button:hover{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px rgb(130, 129, 129);
+    transform: translateY(-3px);
+}
+.add-task-btn{
+    padding: 1em;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    background-color: black;
+    color: white;
+    border: 1px solid transparent;
+    margin-left: -2px;
+}
+.task-container{
+    margin: 1em 0 0 0;
+    width: 100%;
+}
 .task-div{
-    width: 200px;
-    height: 300px;
-    background-color: red;
+    width: 100%;
+    padding: 1em;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-top-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    animation-name: popin;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-in-out;
+}
+.task-name{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px
+}
+@keyframes popin {
+    from{
+        scale: 0;
+    }
+    to{
+        scale: 1
+    }
 }
 .task-div h1{
 margin: 0;

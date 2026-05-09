@@ -8,15 +8,30 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="ribbon">
+        <h1 class="main-header">TaskPoint</h1>
+    </nav>
+    <section class="sidebar">
+        <ul>
+            <li class="dashboard-link">Dashboard</li>
+            <li>Tasks</li>
+        </ul>
+    </section>
+    <header class="add-task-section">
     <input class="add-task-input" type="text" placeholder="what would you like to do?">
     <button class="add-task-btn">add Task</button>
-    <h3>Filters</h3>
+</header>
+<section class="filters-section">
+    <footer>
+    <h3 class="filter-heading">Filters</h3>
     <button class="todo-filter" >Todo</button>
     <button class="Inprogress-filter">In progress</button>
     <button class="Done-filter">Completed</button>
-    
+    <button class="remove-filter">Remove filters</button>
+</footer>
+</section>
 <main class="task-container">
-    
+    <p style="display: none" class="Total-tasks-div"></p>
 </main>
 
 

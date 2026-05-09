@@ -156,3 +156,31 @@ const person = {
 const extractedGreet = person.greet;
 
 extractedGreet()
+const removeFalsyValues = (arr) => {
+  let result =[]
+  for(let i =0; i < arr.length; i++){
+    if(arr[i]){
+      result.push(arr[i]);
+    }
+  }
+  return result
+}
+
+const findMissingNumber =(arr, n) => {
+  let numbersLessthanN = []
+  let missingNumber = []
+  for(let i = n;i >= 0;i--){
+    let number= i
+    numbersLessthanN.push(number)
+  }
+  console.log(numbersLessthanN);
+  for(let i = 0;i<numbersLessthanN.length;i++){
+    if(!arr.includes(numbersLessthanN[i])){
+      missingNumber.push(numbersLessthanN[i]);
+    }
+  }
+  return missingNumber;
+}
+const arrTest = [3,0,1]
+console.log(findMissingNumber(arrTest, 3))
+ 

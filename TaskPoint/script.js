@@ -1,16 +1,27 @@
 //DOM manipulation variables and selectors
+
 const taskInput = document.querySelector('.add-task-input');
 const addTaskButton = document.querySelector('.add-task-btn');
 const taskContainer = document.querySelector(".task-container")
+const TodoTaskDiv = document.querySelector(".Todo-task-div");
+console.log(TodoTaskDiv);
 let storedTaskArray = localStorage.getItem('tasks')
 let updatedTaskArray = JSON.parse(storedTaskArray)
 let taskArray = updatedTaskArray
 console.log(taskArray);
-const todoFilter = document.querySelector('.todo-filter');
+const totalTasksDiv = document.querySelector('.Total-tasks-div');
+console.log(totalTasksDiv)
+const todoFilter = document.querySelector(".todo-filter");
+console.log(todoFilter);
 const InprogressFilter = document.querySelector('.Inprogress-filter');
 const DoneFilter = document.querySelector('.Done-filter')
 let filteredTasks;
 
+const taskArrayNumber =document.createElement('p');
+taskArrayNumber.innerHTML = taskArray.length;
+taskArrayNumber.style.color = 'black';
+taskArrayNumber.style.fontSize = '32px';
+totalTasksDiv.appendChild(taskArrayNumber);
 //Filter for tasks with the same
 const filterTasks = (keyWord) => {
  let storedTasks = localStorage.getItem('tasks')
@@ -26,7 +37,7 @@ const filterTasks = (keyWord) => {
 
 //Event listeners for task filter buttons 
 todoFilter.addEventListener('click', function(){
-  filterTasks('Todo')
+  filterTasks('Todo');
 });
 InprogressFilter.addEventListener('click', function(){
   filterTasks('Inprogress')
@@ -46,7 +57,7 @@ const deleteTask = (arr) =>{
       taskArray = filteredTasksArray
       console.log(taskArray)
       localStorage.setItem("tasks", JSON.stringify(taskArray));
-  
+
       mapTaskArray()
     })
   }
@@ -93,10 +104,9 @@ const mapTaskArray = () => {
   //HTML rendering for all tasks
   let MappedTaskArray = taskArray.map((task) => 
   ` <div class="task-div">
-   <h1>${task.name}</h1>
+   <h1 class='task-name'>${task.name}</h1>
    <p class="task-status">${task.status}</p>
-   <button class='edit-btn'>Edit</button>
-   <button class='del-button'>Delete</button>
+   <section>
    <input class="edit-task-input" type="text" placeholder="edit this task">
    <input class="change-task-status" type="text" id="browser-choice" name="browser" list="browsers">
 
@@ -106,6 +116,10 @@ const mapTaskArray = () => {
   <option value="Completed">
 </datalist>
    <button class='edit'>click to edit</button>
+   </section>
+   <button class='edit-btn'>Edit</button>
+   <button class='del-button'>Delete</button>
+   
    </div>`
  );
  
@@ -143,6 +157,7 @@ const mapTaskArray = () => {
  }
  
  deleteTask(deleteButtons)
+ //useLess code moved outside the mapTaskArray function
 //  for(let i = 0; i < deleteButtons.length; i++){
 //    deleteButtons[i].addEventListener('click', function(){
 //      taskArray[i].status = 'deleted';
@@ -176,5 +191,3 @@ addTaskButton.addEventListener('click', function(){
     addTask(taskInput.value)
   }
 })
-
-
