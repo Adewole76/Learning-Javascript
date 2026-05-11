@@ -19,3 +19,7 @@ console.log(firstValue, lastValue)
 const Scores =[85, 97, 90, 34, 45];
 const restScores = [...Scores, 67, 68, 69]
 console.log(restScores);
+
+const destructArray = (arr) => {
+  
+}
