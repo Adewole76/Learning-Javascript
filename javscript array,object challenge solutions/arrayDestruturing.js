@@ -11,7 +11,7 @@ let b = 20;
 [a, b] = [b, a]
 console.log(b);
 
-const numbers =[100, 200, 300, 400, 500,]
+const numbers =[100, 200, 300, 400, 500]
 const [firstValue, , , , lastValue ] = numbers
 console.log(firstValue, lastValue)
 
@@ -20,6 +20,8 @@ const Scores =[85, 97, 90, 34, 45];
 const restScores = [...Scores, 67, 68, 69]
 console.log(restScores);
 
-const destructArray = (arr) => {
-  
-}
+const swapFirstandLast = (arr) => {
+  const [first, ...rest] = arr;
+  console.log(rest[rest.length - 1],...rest,first) ;
+};
+swapFirstandLast([1, 2, 3, 4]);
