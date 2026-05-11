@@ -183,4 +183,15 @@ const findMissingNumber =(arr, n) => {
 }
 const arrTest = [3,0,1]
 console.log(findMissingNumber(arrTest, 3))
- 
+
+const longestConsecutives = (arr) => {
+  let result =[];
+  let allNonConsecutiveValues =[];
+  let nonDuplicateArray = [];
+  for(let i =0; i<arr.length;i++){
+    if(!nonDuplicateArray.includes(arr[i])){
+      nonDuplicateArray.push(arr[i])
+    }
+  }
+  nonDuplicate.sort((a, b) => a - b);
+}

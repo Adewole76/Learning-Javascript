@@ -21,6 +21,29 @@ body{
     bottom: 0;
     right: 90%;
 }
+.mobile-sidebar{
+    background-color: rgb(9, 131, 224);
+    position: fixed;
+    filter: brightness(150%);
+    left: 90%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    transform: translateX(100%);
+    transition: transform 1s;
+}
+.overlay{
+    display: fixed;
+    top: 0;
+    right:0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(88, 87, 87, 0.278);
+}
+.active{
+    transform: translateX(0%);
+}
 .sidebar ul{
     margin-top: 70%;
     padding: 0;
@@ -50,6 +73,7 @@ body{
 .add-task-input{
     width: 60%;
     padding: 1em 1em 1em 0.5em;
+    border-style: solid;
     border-top-left-radius: 2em;
     border-bottom-left-radius: 2em;
 }
@@ -86,10 +110,12 @@ body{
     padding: 1em;
     border-top-right-radius: 2em;
     border-bottom-right-radius: 2em;
+    border-width: 2px;
     background-color: black;
     color: white;
+    font-weight: bold;
     border: 1px solid transparent;
-    margin-left: -2px;
+    
 }
 .task-container{
     margin: 1em 0 0 0;

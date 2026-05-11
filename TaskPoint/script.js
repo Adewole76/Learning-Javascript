@@ -16,6 +16,16 @@ console.log(todoFilter);
 const InprogressFilter = document.querySelector('.Inprogress-filter');
 const DoneFilter = document.querySelector('.Done-filter')
 let filteredTasks;
+const hamburgerMenu = document.querySelector('.hamburger');
+const mobileSidebar =document.querySelector('.mobile-sidebar');
+const sidebarOverlay =document.querySelector('.overlay');
+const closeSidebar = document.querySelector('.close-sidebar')
+hamburgerMenu.addEventListener('click', function(){
+  mobileSidebar.classList.add('active')
+})
+closeSidebar.addEventListener('click', function(){
+  mobileSidebar.classList.remove('active')
+})
 
 const taskArrayNumber =document.createElement('p');
 taskArrayNumber.innerHTML = taskArray.length;
