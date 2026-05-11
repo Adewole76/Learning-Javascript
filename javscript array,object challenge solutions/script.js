@@ -184,6 +184,7 @@ const findMissingNumber =(arr, n) => {
 const arrTest = [3,0,1]
 console.log(findMissingNumber(arrTest, 3))
 
+//Function to find the length of the longest set consecutive numbers
 const longestConsecutives = (arr) => {
   let result =[];
   let allNonConsecutiveValues =[];
@@ -193,5 +194,16 @@ const longestConsecutives = (arr) => {
       nonDuplicateArray.push(arr[i])
     }
   }
-  nonDuplicate.sort((a, b) => a - b);
+  nonDuplicateArray.sort((a, b) => a - b);
+ let currentStreak = 1
+ for(let i =0;i<nonDuplicateArray;i++){
+  if(nonDuplicateArray[i]+1 == nonDuplicateArray[i+1]){
+    currentStreak = currentStreak + 1
+  }else{
+    currentStreak = 1;
+  }
+ }
+ return result.length
 }
+
+console.log(longestConsecutives([1, 2, 3, 5, 6, 7]))
