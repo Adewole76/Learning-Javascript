@@ -24,6 +24,10 @@ body{
     bottom: 0;
     right: 90%;
 }
+a{
+    color: black;
+    text-decoration: none;
+  }
 .mobile-sidebar{
     background-color: rgb(9, 131, 224);
     position: fixed;

@@ -24,6 +24,10 @@ body{
       bottom: 0;
       right: 90%;
   }
+  a{
+    color: black;
+    text-decoration: none;
+  }
   .mobile-sidebar{
       background-color: rgb(9, 131, 224);
       position: fixed;
@@ -71,7 +75,7 @@ body{
 .tasks-assessment{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1em;
+    column-gap: 0.5em;
     height: 10vh;
 }
 .tasks-assessment div{
