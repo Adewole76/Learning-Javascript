@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
     <title>Document</title>
 </head>
 <body>
+    <nav class="ribbon">
+        <h1 class="main-header">TaskPoint</h1>
+        <button class="hamburger hidden">Menu</button>
+    </nav>
+    <section class="sidebar">
+        <ul>
+            <li class="dashboard-link">Dashboard</li>
+            <li>Tasks</li>
+        </ul>
+    </section>
+    <section class="mobile-sidebar">
+        <button class="close-sidebar">close</button>
+        <ul>
+            <li class="dashboard-link">Dashboard</li>
+            <li class="TasksBoard-link">Tasks</li>
+        </ul>
+    </section>
+    <h1>Welcome,</h1>
     <div class="Total-tasks-div"></div>
+<section class="tasks-assessment">
     <div class="Todo-task-div"></div>
     <div class="Inprogress-task-div"></div>
     <div class="Completed-task-div"></div>
-
+</section>
+<p class="hamburger"></p>
     <script src="script.js"></script>
 </body>
 </html>

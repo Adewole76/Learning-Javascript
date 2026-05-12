@@ -19,7 +19,10 @@ let filteredTasks;
 const hamburgerMenu = document.querySelector('.hamburger');
 const mobileSidebar =document.querySelector('.mobile-sidebar');
 const sidebarOverlay =document.querySelector('.overlay');
-const closeSidebar = document.querySelector('.close-sidebar')
+const closeSidebar = document.querySelector('.close-sidebar');
+const todoTaskDiv = document.querySelector('.Todo-task-divs');
+const InprogressTaskDiv = document.querySelector('.Inprogress-task-div');
+const CompletedTaskDiv = document.querySelector('.Completed-task-div');
 hamburgerMenu.addEventListener('click', function(){
   mobileSidebar.classList.add('active')
 })
