@@ -23,8 +23,10 @@ const closeSidebar = document.querySelector('.close-sidebar');
 const todoTaskDiv = document.querySelector('.Todo-task-divs');
 const InprogressTaskDiv = document.querySelector('.Inprogress-task-div');
 const CompletedTaskDiv = document.querySelector('.Completed-task-div');
+
+//sidebar
 hamburgerMenu.addEventListener('click', function(){
-  mobileSidebar.classList.add('active')
+  mobileSidebar.classList.add('active');
 })
 closeSidebar.addEventListener('click', function(){
   mobileSidebar.classList.remove('active')
