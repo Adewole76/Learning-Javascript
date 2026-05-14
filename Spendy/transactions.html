@@ -9,7 +9,23 @@
 </head>
 <body>
     <button class="add-transaction">add transaction</button>
-<main class="transaction-container">
+<form action="">
+    <label for="browser-choice">Transaction type:</label>
+<input list="browsers" id="browser-choice" name="browser">
+
+<datalist id="browsers">
+  <option value="Income">
+  <option value="Expense">
+</datalist>
+
+<label for="">Amount:
+    <input type="text" placeholder="amount">
+</label>
+<label for="">Description:
+    <input type="text" placeholder="description">
+</label>
+</form>
+    <main class="transaction-container">
 
 </main>
 

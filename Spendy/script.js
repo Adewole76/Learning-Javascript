@@ -1,9 +1,20 @@
+//DOM manipulation variables
 const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
+const totalAmountDiv = document.querySelector('.total-balance');
+const updatetotalAmountBtn = document.querySelector('.update-amount-button')
+
+//loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
 let parsedStoredTasks =JSON.parse(storedTasks);
-const transactionsArray = parsedStoredTasks;
+const transactionsArray = parsedStoredTasks ? parsedStoredTasks:[];
 console.log(transactionsArray);
+
+let totalBalance = 0;
+let totalIncome = 0;
+let totalExpense =0;
+
+
 //Functions to add a transaction
 const addTransaction =(transactiontype, transactionamount, transactiondescription, transactioncategory) => {
     let transactionObject = {
@@ -18,12 +29,15 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         transactionsArray.push(transactionObject); 
     }else{
       console.log('amount must be a number');
-    }
-   
+    };
+   totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
-    console.log(transactionsArray)
+    console.log(transactionsArray);
 }
+
+
 addTransactionButton.addEventListener('click', function(){
-    addTransaction('income', 2500, 'money from my sis', 'food and snacks', )
+    addTransaction('income', 2500, 'money from my sis', 'food and snacks', );
 });
+
 
