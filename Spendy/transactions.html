@@ -9,20 +9,42 @@
 </head>
 <body>
     <button class="add-transaction">add transaction</button>
-<form action="">
-    <label for="browser-choice">Transaction type:</label>
-<input list="browsers" id="browser-choice" name="browser">
+     <div class="overlay hidden"></div>
 
-<datalist id="browsers">
-  <option value="Income">
-  <option value="Expense">
-</datalist>
-
+    <form class="transaction-form hidden" action="">
+        <h2>Add a transaction</h2>
+        <section>
+        <button class="income-button">Income</button>
+       <button class="income-button">Expense</button>
+      </section>
+    <!--<label for="browser-choice">Transaction type:</label>-->
 <label for="">Amount:
     <input type="text" placeholder="amount">
 </label>
+
 <label for="">Description:
     <input type="text" placeholder="description">
+</label>
+<label for="Income Category">Category:
+    <select name="" id="">
+        <option value="">Allowance</option>
+        <option value="">Salary</option>
+        <option value="">Gift</option>
+        <option value="">Refund</option>
+        <option value="">Others</option>
+    </select>
+</label>
+<label class="Expense Category" for="">Category:
+    <select name="" id="">
+        <option value="">Food</option>
+        <option value="">Transport</option>
+        <option value="">Date/Airtime</option>
+        <option value="">Books/Stationery</option>
+        <option value="">Rent</option>
+        <option value="">Entertainment</option>
+        <option value="">Clothing</option>
+        <option value="">Others</option>
+    </select>
 </label>
 </form>
     <main class="transaction-container">

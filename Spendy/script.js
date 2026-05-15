@@ -1,8 +1,10 @@
-//DOM manipulation variables
+
 const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
 const totalAmountDiv = document.querySelector('.total-balance');
 const updatetotalAmountBtn = document.querySelector('.update-amount-button')
+const transactionForm = document.querySelector('.transaction-form');
+const backDropOverlay = document.querySelector('.overlay');
 
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
@@ -37,7 +39,12 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
 
 
 addTransactionButton.addEventListener('click', function(){
-    addTransaction('income', 2500, 'money from my sis', 'food and snacks', );
+    transactionForm.classList.remove('hidden');
+    backDropOverlay.classList.remove('hidden');
 });
+backDropOverlay.addEventListener('click', function(){
+    transactionForm.classList.add('hidden'); 
+    backDropOverlay.classList.add('hidden')
+})
 
 
