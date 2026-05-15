@@ -9,6 +9,7 @@ const incomeButton = document.querySelector('.income-button');
 const ExpenseButton = document.querySelector('.Expense-button')
 const ExpenseCategory = document.querySelector('.Expense');
 const IncomeCategory = document.querySelector('.Income');
+const actualAddtransaction = document.querySelector('.add')
 
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
@@ -61,5 +62,7 @@ ExpenseButton.addEventListener('click', function(){
   IncomeCategory.classList.add('hidden');
 })
 
-
+actualAddtransaction.addEventListener('click', function(){
+    addTransaction()
+})
 

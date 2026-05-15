@@ -14,8 +14,8 @@
     <form class="transaction-form hidden" action="">
         <h2>Add a transaction</h2>
         <section>
-        <button class="income-button">Income</button>
-       <button class="Expense-button">Expense</button>
+        <button type="button" class="income-button">Income</button>
+       <button type="button" class="Expense-button">Expense</button>
       </section>
     <!--<label for="browser-choice">Transaction type:</label>-->
 <label for="">Amount:
@@ -25,7 +25,7 @@
 <label for="">Description:
     <input type="text" placeholder="description">
 </label>
-<label for="Income Category">Category:
+<label class="Income Category" for="">Category:
     <select name="" id="">
         <option value="">Allowance</option>
         <option value="">Salary</option>
@@ -46,6 +46,7 @@
         <option value="">Others</option>
     </select>
 </label>
+<button class="add">Add Transaction</button>
 </form>
     <main class="transaction-container">
 
