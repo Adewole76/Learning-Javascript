@@ -1,12 +1,23 @@
 body{
     position: relative
 }
+h2{
+    text-align: center;
+}
 form{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
+    width: clamp(300px, 50%, 800px);
+}
+label{
+    display: block;
+}
+input{
+    display: block;
+    width: 70%;
 }
 .hidden{
     display: none;

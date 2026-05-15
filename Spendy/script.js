@@ -5,6 +5,10 @@ const totalAmountDiv = document.querySelector('.total-balance');
 const updatetotalAmountBtn = document.querySelector('.update-amount-button')
 const transactionForm = document.querySelector('.transaction-form');
 const backDropOverlay = document.querySelector('.overlay');
+const incomeButton = document.querySelector('.income-button');
+const ExpenseButton = document.querySelector('.Expense-button')
+const ExpenseCategory = document.querySelector('.Expense');
+const IncomeCategory = document.querySelector('.Income');
 
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
@@ -46,5 +50,16 @@ backDropOverlay.addEventListener('click', function(){
     transactionForm.classList.add('hidden'); 
     backDropOverlay.classList.add('hidden')
 })
+
+incomeButton.addEventListener('click', function(){
+    IncomeCategory.classList.remove('hidden');
+    ExpenseCategory.classList.add('hidden');
+})
+
+ExpenseButton.addEventListener('click', function(){
+ ExpenseCategory.classList.remove('hidden')
+  IncomeCategory.classList.add('hidden');
+})
+
 
 
