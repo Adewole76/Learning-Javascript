@@ -57,6 +57,7 @@ input{
     width: 100px;
     height: 200px;
     background-color: yellow;
+    margin-bottom: 2em;
 }
 .income-category{
     color: green;

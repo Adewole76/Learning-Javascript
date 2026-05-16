@@ -71,18 +71,41 @@ ExpenseButton.addEventListener('click', function(){
 
 actualAddtransaction.addEventListener('click', function(){
     addTransaction(transactionType, amountInput.value, description_input.value, CategoryInput.value);
+    mappingTransaction();
     console.log(transactionsArray);
 })
 closeButton.addEventListener('click', function(){
     transactionForm.classList.add('hidden'); 
-    backDropOverlay.classList.add('hidden')
-})
-const mappedTransactionsArray = transactionsArray.map(transaction => transaction.type === 'Income'?`
-<div class="transaction-income">
-<p class="income-category">${transaction.category}</p>
-</div>
-`:`<div class="transaction-expense">
-<p class="expense-category">${transaction.category}</p>
-</div>`);
+    backDropOverlay.classList.add('hidden');
+});
 
-transactionContainer.innerHTML= mappedTransactionsArray;
+
+const mappingTransaction = () => {
+    const mappedTransactionsArray = transactionsArray.map(transaction => transaction.type === 'Income'?`
+    <div class="transaction-income">
+    <p class="income-category">${transaction.category}</p>
+    <button class= "delete-button">Delete</button>
+    </div>
+    `:`<div class="transaction-expense">
+    <p class="expense-category">${transaction.category}</p>
+    <button class= "delete-button">Delete</button>
+    </div>`).join('');
+    
+   
+    transactionContainer.innerHTML= mappedTransactionsArray;
+};
+mappingTransaction();
+const deleteButtons = document.querySelectorAll(".delete-button");
+console.log(deleteButtons);
+const deleteTransaction = (arr) => {
+    let filteredTransactionsArray = arr.filter();
+    transactionsArray = filteredTransactionsArray;
+ }
+ 
+for(let i = 0; i < deleteButtons.length; i++){
+    deleteButtons[i].addEventListener('click', function(){
+        deleteTransaction(transactionsArray); 
+    })
+}
+
+

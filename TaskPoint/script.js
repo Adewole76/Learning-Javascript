@@ -7,7 +7,7 @@ const TodoTaskDiv = document.querySelector(".Todo-task-div");
 console.log(TodoTaskDiv);
 let storedTaskArray = localStorage.getItem('tasks')
 let updatedTaskArray = JSON.parse(storedTaskArray)
-let taskArray = updatedTaskArray
+let taskArray = updatedTaskArray ? updatedTaskArray:[]
 console.log(taskArray);
 const totalTasksDiv = document.querySelector('.Total-tasks-div');
 console.log(totalTasksDiv)
@@ -32,7 +32,7 @@ closeSidebar.addEventListener('click', function(){
   mobileSidebar.classList.remove('active')
 })
 
-const taskArrayNumber =document.createElement('p');
+const taskArrayNumber = document.createElement('p');
 taskArrayNumber.innerHTML = taskArray.length;
 taskArrayNumber.style.color = 'black';
 taskArrayNumber.style.fontSize = '32px';
