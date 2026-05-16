@@ -10,6 +10,12 @@ const ExpenseButton = document.querySelector('.Expense-button')
 const ExpenseCategory = document.querySelector('.Expense');
 const IncomeCategory = document.querySelector('.Income');
 const actualAddtransaction = document.querySelector('.add')
+const closeButton = document.querySelector('.close-button');
+
+//form input DOM variables
+const amountInput =document.querySelector('.amount-input');
+const description_input = document.querySelector('.description-input');
+const CategoryInput = document.getElementById('category-select');
 
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
@@ -21,7 +27,7 @@ let totalBalance = 0;
 let totalIncome = 0;
 let totalExpense =0;
 
-
+let transactionType = 'Income'
 //Functions to add a transaction
 const addTransaction =(transactiontype, transactionamount, transactiondescription, transactioncategory) => {
     let transactionObject = {
@@ -32,12 +38,9 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         category: transactioncategory,
         date: new Date()
     }
-    if(Number.isFinite(transactionamount)){
+    
         transactionsArray.push(transactionObject); 
-    }else{
-      console.log('amount must be a number');
-    };
-   totalBalance = totalBalance + transactionObject[amount];
+   //totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
 }
@@ -55,14 +58,22 @@ backDropOverlay.addEventListener('click', function(){
 incomeButton.addEventListener('click', function(){
     IncomeCategory.classList.remove('hidden');
     ExpenseCategory.classList.add('hidden');
+    transactionType ='Income';
+    console.log(transactionType);
 })
 
 ExpenseButton.addEventListener('click', function(){
  ExpenseCategory.classList.remove('hidden')
   IncomeCategory.classList.add('hidden');
+  transactionType ='Expense';
+  console.log(transactionType)
 })
 
 actualAddtransaction.addEventListener('click', function(){
-    addTransaction()
+    addTransaction(transactionType, amountInput.value, description_input.value, CategoryInput.value);
+    console.log(transactionsArray);
 })
-
+closeButton.addEventListener('click', function(){
+    transactionForm.classList.add('hidden'); 
+    backDropOverlay.classList.add('hidden')
+})

@@ -10,7 +10,11 @@ form{
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    width: clamp(300px, 50%, 800px);
+    width: clamp(300px, 60%, 800px);
+    height: clamp(300px, 60%, 800px);;
+    animation-name: scalein;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
 }
 label{
     display: block;
@@ -28,7 +32,26 @@ input{
     bottom: 0;
     right: 0;
     left: 0;
-    background-color:rgba(128, 128, 128, 0.5)
+    background-color:rgba(0, 0, 0, 0.556);
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes fadein {
+   0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes scalein {
+    0%{
+        scale: 0;
+    }
+    100%{
+        scale: 1;
+    }
 }
 .active{
     display: block;
