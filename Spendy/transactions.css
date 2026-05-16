@@ -53,6 +53,17 @@ input{
         scale: 1;
     }
 }
+.transaction-income, .transaction-expense{
+    width: 100px;
+    height: 200px;
+    background-color: yellow;
+}
+.income-category{
+    color: green;
+}
+.expense-category{
+    color: red;
+}
 .active{
     display: block;
 }

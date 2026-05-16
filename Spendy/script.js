@@ -27,7 +27,7 @@ let totalBalance = 0;
 let totalIncome = 0;
 let totalExpense =0;
 
-let transactionType = 'Income'
+let transactionType = 'Expense'
 //Functions to add a transaction
 const addTransaction =(transactiontype, transactionamount, transactiondescription, transactioncategory) => {
     let transactionObject = {
@@ -77,3 +77,12 @@ closeButton.addEventListener('click', function(){
     transactionForm.classList.add('hidden'); 
     backDropOverlay.classList.add('hidden')
 })
+const mappedTransactionsArray = transactionsArray.map(transaction => transaction.type === 'Income'?`
+<div class="transaction-income">
+<p class="income-category">${transaction.category}</p>
+</div>
+`:`<div class="transaction-expense">
+<p class="expense-category">${transaction.category}</p>
+</div>`);
+
+transactionContainer.innerHTML= mappedTransactionsArray;
