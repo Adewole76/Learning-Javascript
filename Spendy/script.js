@@ -1,4 +1,4 @@
-
+'use strict'
 const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
 const totalAmountDiv = document.querySelector('.total-balance');
