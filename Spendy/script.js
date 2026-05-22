@@ -1,7 +1,8 @@
 'use strict'
 const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
-const totalAmountDiv = document.querySelector('.total-balance');
+const totalAmountheader = document.querySelector('.total-balanc');
+console.log(totalAmountheader);
 const updatetotalAmountBtn = document.querySelector('.update-amount-button')
 const transactionForm = document.querySelector('.transaction-form');
 const backDropOverlay = document.querySelector('.overlay');
@@ -20,7 +21,7 @@ const CategoryInput = document.getElementById('category-select');
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
 let parsedStoredTasks =JSON.parse(storedTasks);
-const transactionsArray = parsedStoredTasks ? parsedStoredTasks:[];
+let transactionsArray = parsedStoredTasks ? parsedStoredTasks:[];
 console.log(transactionsArray);
 
 let totalBalance = 0;
@@ -98,14 +99,23 @@ mappingTransaction();
 const deleteButtons = document.querySelectorAll(".delete-button");
 console.log(deleteButtons);
 const deleteTransaction = (arr) => {
-    let filteredTransactionsArray = arr.filter();
+    let filteredTransactionsArray = arr.filter(transaction => transaction.type !== 'Deleted');
     transactionsArray = filteredTransactionsArray;
+    localStorage.setItem('transactions', JSON.stringify(transactionsArray))
  }
  
 for(let i = 0; i < deleteButtons.length; i++){
     deleteButtons[i].addEventListener('click', function(){
+        console.log(transactionsArray[i]);
+        transactionsArray[i].type = 'Deleted'
         deleteTransaction(transactionsArray); 
     })
 }
+for(let i = 0; i < transactionsArray.length; i++){
+    let transactionAmount = Number(transactionsArray[i].amount);
+    totalBalance = totalBalance + transactionAmount;
+    console.log(totalBalance);
+}
+totalAmountheader.innerHTML = totalBalance;
 
 
