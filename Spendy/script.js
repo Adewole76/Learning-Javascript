@@ -8,18 +8,18 @@ const transactionForm = document.querySelector('.transaction-form');
 const backDropOverlay = document.querySelector('.overlay');
 const incomeButton = document.querySelector('.income-button');
 const ExpenseButton = document.querySelector('.Expense-button');
-const ExpenseCategory = document.querySelector('.Expense');
-const IncomeCategory = document.querySelector('.Income');
+const ExpenseCategory = document.querySelector('.Expense-cate');
+console.log(ExpenseCategory);
+const IncomeCategory = document.querySelector('.Income-category');
+console.log(IncomeCategory)
 const actualAddtransaction = document.querySelector('.add')
 const closeButton = document.querySelector('.close-button');
-const selectExpense = document.querySelector('.ExpenseCat')
+const selectExpense = document.querySelector('.ExpenseCat');
+console.log(selectExpense);
 const selectIncome = document.querySelector('.incomeCat');
 
-//form input DOM variables
-const amountInput = document.querySelector('.amount-input');
-const description_input = document.querySelector('.description-input');
-const CategoryInput = document.querySelector('.category-select');
-console.log(CategoryInput);
+
+
 
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
@@ -27,6 +27,11 @@ let parsedStoredTasks =JSON.parse(storedTasks);
 let transactionsArray = parsedStoredTasks ? parsedStoredTasks:[];
 console.log(transactionsArray);
 
+//form input DOM variables
+const amountInput = document.querySelector('.amount-input');
+const description_input = document.querySelector('.description-input');
+let CategoryInput= document.querySelector('.category-select')
+console.log(CategoryInput);
 //user monetary info
 let totalBalance = 0;
 let totalIncome = 0;
@@ -62,19 +67,20 @@ backDropOverlay.addEventListener('click', function(){
 })
 
 incomeButton.addEventListener('click', function(){
-    IncomeCategory.classList.remove('hidden');
-    ExpenseCategory.classList.add('hidden');
-    transactionType ='Income';
-    console.log(transactionType);
-    console.log(CategoryInput)
-})
-
-ExpenseButton.addEventListener('click', function(){
- ExpenseCategory.classList.remove('hidden');
-  IncomeCategory.classList.add('hidden');
-  transactionType ='Expense';
-  console.log(transactionType)
+  ExpenseCategory.classList.add('hidden');
+  IncomeCategory.classList.remove('hidden');
+  selectExpense.classList.remove('category-select')
+  selectIncome.classList.add('category-select');
+  CategoryInput = document.querySelector('.category-select')
   console.log(CategoryInput);
+})
+ExpenseButton.addEventListener('click', function(){
+    ExpenseCategory.classList.remove('hidden');
+    IncomeCategory.classList.add('hidden');
+    selectIncome.classList.remove('category-select');
+    selectExpense.classList.add('category-select');
+    CategoryInput = document.querySelector('.category-select')
+    console.log(CategoryInput);
 })
 
 actualAddtransaction.addEventListener('click', function(){
