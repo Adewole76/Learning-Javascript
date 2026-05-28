@@ -71,7 +71,8 @@ incomeButton.addEventListener('click', function(){
   IncomeCategory.classList.remove('hidden');
   selectExpense.classList.remove('category-select')
   selectIncome.classList.add('category-select');
-  CategoryInput = document.querySelector('.category-select')
+  transactionType = 'Income';
+  CategoryInput = document.querySelector('.category-select');
   console.log(CategoryInput);
 })
 ExpenseButton.addEventListener('click', function(){
@@ -79,6 +80,7 @@ ExpenseButton.addEventListener('click', function(){
     IncomeCategory.classList.add('hidden');
     selectIncome.classList.remove('category-select');
     selectExpense.classList.add('category-select');
+    transactionType = 'Expense'
     CategoryInput = document.querySelector('.category-select')
     console.log(CategoryInput);
 })
