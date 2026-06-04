@@ -20,7 +20,6 @@ const selectIncome = document.querySelector('.incomeCat');
 
 
 
-
 //loading tasks array from localStorage to ensure info persistence
 let storedTasks = localStorage.getItem('transactions');
 let parsedStoredTasks =JSON.parse(storedTasks);
@@ -37,8 +36,9 @@ let totalBalance = 0;
 let totalIncome = 0;
 let totalExpense =0;
 
-//Variable tracking transactions category
-let transactionType = 'Expense'
+//Variable tracking transactions type changes with every
+let transactionType = 'Expense';
+
 //Functions to add a transaction
 const addTransaction =(transactiontype, transactionamount, transactiondescription, transactioncategory) => {
     let transactionObject = {
@@ -118,18 +118,21 @@ console.log(deleteButtons);
 const deleteTransaction = (arr) => {
     let filteredTransactionsArray = arr.filter(transaction => transaction.type !== 'Deleted');
     transactionsArray = filteredTransactionsArray;
-    localStorage.setItem('transactions', JSON.stringify(transactionsArray))
-deleteTransaction(arr); 
+    localStorage.setItem('transactions', JSON.stringify(transactionsArray));
 }
- 
+deleteTransaction(transactionsArray);
+
+
 //event listener for all delete buttons 
 for(let i = 0; i < deleteButtons.length; i++){
     deleteButtons[i].addEventListener('click', function(){
         console.log(transactionsArray[i]);
         transactionsArray[i].type = 'Deleted'
-        deleteTransaction(transactionsArray); 
+        deleteTransaction(transactionsArray);
+        mappingTransaction(); 
     })
 }
+
 //for loop for all transaction amounts 
 for(let i = 0; i < transactionsArray.length; i++){
     let transactionAmount = Number(transactionsArray[i].amount);
@@ -143,5 +146,3 @@ for(let i = 0; i < transactionsArray.length; i++){
 }
 totalAmount.innerHTML = totalBalance;
 console.log(totalAmount.innerHTML);
-
-
