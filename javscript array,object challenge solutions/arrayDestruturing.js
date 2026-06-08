@@ -74,11 +74,11 @@ const {menu = [], starterMenu: starters = []}= restaurant;
 console.log(menu, starters);
 
 //Mutating variables
-let a = 111;
-let b = 999;
-const obj = {a: 23, b: 7, c: 14};
-({ a, b } = obj)
-console.log(a,b);
+// let a = 111;
+// let b = 999;
+// const obj = {a: 23, b: 7, c: 14};
+// ({ a, b } = obj)
+// console.log(a,b);
 
 //Nested Objects
 const {fri: {open: o, close: c}} = openingHours;
@@ -117,3 +117,57 @@ console.log(o, c);
 // //Default values
 // const [p=1, q=1, r=1] = [8]
 // console.log(p, q, r);
+
+
+const colors = ["red", "blue", "green", "yellow", "purple"];
+const [first, second, , fourth] = colors;
+
+console.log(first, second, fourth);
+
+const numbers = [10, 20, 30, 40, 50];
+const [firstnum, , , ,last] = numbers;
+console.log(firstnum, last)
+
+const scores = [85, 92, 78, 88, 95, 70];
+console.log(scores.length);
+const [score1, score2, ...remaining] = scores;
+console.log(score1, score2, remaining);
+
+let a = 5;
+let b = 10;
+[a, b] = [b, a];
+console.log(a, b);
+
+function getFirstAndLast(arr){
+ const [first, ...rest] = arr;
+ console.log(first);
+ const neededValues = [first, rest[rest.length -1]]
+ return neededValues
+}
+console.log(getFirstAndLast(numbers));
+console.log(getFirstAndLast(scores));
+
+const student = {
+  name: "Emmanuel",
+  address: {
+    city: "Lagos",
+    country: "Nigeria"
+  }
+};
+const users = [
+  { na: "Alice", address: { city: "Abuja" } },
+  { na: "Bob", address: { city: "Ibadan" } }
+];
+  const [firsty, secondy] = users;
+  console.log(firsty.na)
+  console.log(secondy.address.city)
+const {address: {city:ca, country: co}} =student;
+console.log(ca, co)
+
+const user = {
+  name: "Aisha",
+  ag: 22
+};
+
+const {name: fullName, ag = 18, country = 'Nigeria'} = user;
+console.log(fullName, ag, country);
