@@ -145,8 +145,6 @@ transactionContainer.addEventListener('click', function(e) {
         
         // Get the transaction ID from the parent element
         const transactionElement = e.target.closest('.transaction-income, .transaction-expense');
-        
-        // We need to store the ID in the HTML. Let's update mappingTransaction first.
     }
 });
 
