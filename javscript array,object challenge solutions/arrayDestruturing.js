@@ -50,18 +50,57 @@ const restaurant = {
       close: 24,
     }
   },
-  orderDelivery: function({starterIndex, mainIndex, time, address}){
+  orderDelivery: function({starterIndex =1, mainIndex =0, time="20:00", address}){
    console.log(`Order received: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
+  },
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`here is your delecious pasta with ${ing1}, ${ing2} and ${ing3}`)
   }
 };  
-
+const ar = [1, 2, ...[3,4]];
+const [ai, bi, ...others] = [1,2,3,4,5];
+console.log(ai, bi, others);
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del sole, 21',
   mainIndex: 2,  
   starterIndex: 2
 })
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1,
+});
 
+const ingredients = [prompt('lets\'s make pasta! ingredient 1?'), prompt('ingredient 2?'), prompt('ingredient 3?')]
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+const arr = [7,8,9];
+const badNewArr = [1, 2, ...arr]
+console.log(badNewArr);
+
+const newRestaurant = {foundIn:1988, ...restaurant, founder: 'Guiseppe'}
+console.log(...badNewArr)
+console.log(newRestaurant);
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurant.name)
+console.log(restaurantCopy.name);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+//copy Array
+const mainMenuCopy = [...restaurant.mainMenu];
+//join two Arrays
+const men = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(men);
+
+//iterables are arrays, strings, maps, sets but not objects
+const str = 'jonas';
+const letters = [...str, '', 's'];
+console.log(letters);
+console.log(...str);
 const { name, openingHours, caiutegories } = restaurant;
 console.log(name, openingHours, caiutegories);
 

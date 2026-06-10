@@ -210,3 +210,9 @@ return maxStreak
 }
 
 console.log(longestConsecutives([100,200,1,4,5,2,3]))
+
+//TwoSum leetcode challenge
+const twoSum = () => {
+  const indexOftwoSumValues = []
+  
+}

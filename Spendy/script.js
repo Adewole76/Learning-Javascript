@@ -4,6 +4,9 @@ const addTransactionButton = document.querySelector('.add-transaction');
 const totalAmount = document.querySelector('.total-balances');
 console.log(totalAmount);
 const updatetotalAmountBtn = document.querySelector('.update-amount-button');
+const updateButton = document.querySelector('.update-button');
+const updateAmountInput = document.querySelector('.update-amount-input');
+console.log(updateAmountInput);
 const transactionForm = document.querySelector('.transaction-form');
 const backDropOverlay = document.querySelector('.overlay');
 const incomeButton = document.querySelector('.income-button');
@@ -97,22 +100,36 @@ closeButton.addEventListener('click', function(){
 
 
 const mappingTransaction = () => {
-    const mappedTransactionsArray = transactionsArray.map(transaction => transaction.type === 'Income'?`
-    <div class="transaction-income">
-    <p class="income-category">${transaction.category}</p>
-    <button class= "delete-button">Delete</button>
-    </div>
-    `:`<div class="transaction-expense">
-    <p class="expense-category">${transaction.category}</p>
-    <button class= "delete-button">Delete</button>
-    </div>`).join('');
-    
-   
-    transactionContainer.innerHTML= mappedTransactionsArray;
+    const mappedTransactionsArray = transactionsArray.map(transaction => {
+        const isIncome = transaction.type === 'Income';
+        
+        return `
+            <div class="${isIncome ? 'transaction-income' : 'transaction-expense'}" data-id="${transaction.id}">
+                <p class="${isIncome ? 'income-category' : 'expense-category'}">${transaction.category}</p>
+                <button class="delete-button">Delete</button>
+            </div>
+        `;
+    }).join('');
+
+    transactionContainer.innerHTML = mappedTransactionsArray;
 };
 mappingTransaction();
-const deleteButtons = document.querySelectorAll(".delete-button");
-console.log(deleteButtons);
+// Delete using event delegation (put this once)
+transactionContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('delete-button')) {
+        const transactionDiv = e.target.closest('[data-id]');
+        const idToDelete = transactionDiv.dataset.id;
+
+        // Remove from array
+        transactionsArray = transactionsArray.filter(t => t.id !== idToDelete);
+
+        // Save to localStorage
+        localStorage.setItem('transactions', JSON.stringify(transactionsArray));
+
+        // Re-render
+        mappingTransaction();
+    }
+});
 
 //delete Transaction from transactions Array
 const deleteTransaction = (arr) => {
@@ -120,18 +137,18 @@ const deleteTransaction = (arr) => {
     transactionsArray = filteredTransactionsArray;
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
 }
-deleteTransaction(transactionsArray);
 
 
-//event listener for all delete buttons 
-for(let i = 0; i < deleteButtons.length; i++){
-    deleteButtons[i].addEventListener('click', function(){
-        console.log(transactionsArray[i]);
-        transactionsArray[i].type = 'Deleted'
-        deleteTransaction(transactionsArray);
-        mappingTransaction(); 
-    })
-}
+// Event delegation for delete buttons
+transactionContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('delete-button')) {
+        
+        // Get the transaction ID from the parent element
+        const transactionElement = e.target.closest('.transaction-income, .transaction-expense');
+        
+        // We need to store the ID in the HTML. Let's update mappingTransaction first.
+    }
+});
 
 //for loop for all transaction amounts 
 for(let i = 0; i < transactionsArray.length; i++){
