@@ -145,6 +145,7 @@ transactionContainer.addEventListener('click', function(e) {
         
         // Get the transaction ID from the parent element
         const transactionElement = e.target.closest('.transaction-income, .transaction-expense');
+    
     }
 });
 
