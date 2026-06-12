@@ -20,6 +20,8 @@ const closeButton = document.querySelector('.close-button');
 const selectExpense = document.querySelector('.ExpenseCat');
 console.log(selectExpense);
 const selectIncome = document.querySelector('.incomeCat');
+const incomeContainer = document.querySelector('.income-container');
+const expenseContainer = document.querySelector('.expense-container');
 
 
 
@@ -32,12 +34,13 @@ console.log(transactionsArray);
 //form input DOM variables
 const amountInput = document.querySelector('.amount-input');
 const description_input = document.querySelector('.description-input');
-let CategoryInput= document.querySelector('.category-select')
+let CategoryInput= document.querySelector('.category-select');
 console.log(CategoryInput);
 //user monetary info
 let totalBalance = 0;
 let totalIncome = 0;
 let totalExpense =0;
+
 
 //Variable tracking transactions type changes with every
 let transactionType = 'Expense';
@@ -154,11 +157,17 @@ for(let i = 0; i < transactionsArray.length; i++){
     let transactionAmount = Number(transactionsArray[i].amount);
     if(transactionsArray[i].type === 'Income'){
     totalBalance = totalBalance + transactionAmount;
+    totalIncome = totalIncome + transactionAmount;
+    console.log(totalIncome);
     console.log(totalBalance);
     }else if(transactionsArray[i].type === 'Expense'){
     totalBalance = totalBalance - transactionAmount;
+    totalExpense = totalExpense + transactionAmount;
+    console.log(totalExpense);
     console.log(totalBalance);
     }
 }
 totalAmount.innerHTML = totalBalance;
+incomeContainer.innerHTML = totalIncome;
+expenseContainer.innerHTML = totalExpense;
 console.log(totalAmount.innerHTML);
