@@ -55,11 +55,23 @@ const restaurant = {
   },
   orderPasta: function(ing1, ing2, ing3){
     console.log(`here is your delecious pasta with ${ing1}, ${ing2} and ${ing3}`)
+  },
+  orderPizza: function(mainIngredient, ...otherIngredients){
+   console.log(mainIngredient);
+   console.log(otherIngredients); 
   }
-};  
+};
+restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');  
 const ar = [1, 2, ...[3,4]];
 const [ai, bi, ...others] = [1,2,3,4,5];
 console.log(ai, bi, others);
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+const {sat, ...weekdays} = restaurant.openingHours;
+console.log(weekdays);
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del sole, 21',
@@ -70,6 +82,20 @@ restaurant.orderDelivery({
   address: 'Via del Sole, 21',
   starterIndex: 1,
 });
+//Functions
+const add = function (...numbers){
+  let sumOfNumbers = 0;
+  for(let i = 0; i < numbers.length; i++){
+    sumOfNumbers = sumOfNumbers + numbers[i]
+  }
+  console.log(sumOfNumbers)
+}
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2,1,4);
+
+const x = [23, 5, 6];
+add(...x);
 
 const ingredients = [prompt('lets\'s make pasta! ingredient 1?'), prompt('ingredient 2?'), prompt('ingredient 3?')]
 console.log(ingredients);
@@ -111,6 +137,7 @@ console.log(restaurantName, hours, tags);
 //Default Values
 const {menu = [], starterMenu: starters = []}= restaurant;
 console.log(menu, starters);
+
 
 //Mutating variables
 // let a = 111;
