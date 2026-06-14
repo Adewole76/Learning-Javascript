@@ -1,6 +1,19 @@
 .hide{
     display: none;
 }
+header{
+    display: flex;
+    justify-content: space-between;
+}
+header h2{
+    margin: 0;
+}
 .absolute-Balance{
     background-color: black;
+  }
+  .updownBtn{
+    transition: transform 0.15s;
+  }
+  .updownBtn:hover{
+    transform: rotate(180deg)
   }
