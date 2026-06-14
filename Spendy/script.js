@@ -116,7 +116,7 @@ const mappingTransaction = () => {
 
     transactionContainer.innerHTML = mappedTransactionsArray;
 };
-mappingTransaction();q
+mappingTransaction();
 // Delete using event delegation (put this once)
 transactionContainer.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-button')) {

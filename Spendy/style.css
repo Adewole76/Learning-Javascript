@@ -1,3 +1,8 @@
+body{
+    padding-left: 4em;
+    padding-right: 4em;
+    font-family:Arial, Helvetica, sans-serif
+}
 .hide{
     display: none;
 }
@@ -7,13 +12,28 @@ header{
 }
 header h2{
     margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
 }
-.absolute-Balance{
-    background-color: black;
-  }
-  .updownBtn{
+.updownBtn{
     transition: transform 0.15s;
+    vertical-align: middle;
   }
   .updownBtn:hover{
     transform: rotate(180deg)
   }
+.button-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.absolute-Balance{
+    background-color: black;
+}
+h2,h3{
+    margin: 0;
+}
+  .total-balances{
+    color: white;
+  }
+  
