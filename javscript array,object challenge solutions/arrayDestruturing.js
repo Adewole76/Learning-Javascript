@@ -69,6 +69,53 @@ console.log(ai, bi, others);
 const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(pizza, risotto, otherFood);
 
+console.log('---OR---')
+//
+console.log(3 || 'jonas');
+console.log('' || 'jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+restaurant.numGuests = 23
+const guests1 = restaurant.numGuests ? restaurant.numGuests:10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('----AND----');
+console.log(0 && 'jonas');
+console.log(7 && 'jonas');
+
+console.log('Hello' && 23 && null && 'jonas');
+if(restaurant.orderPizza){
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+//nullish null and undefined
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+const restaurant1 = {
+  name: 'Capri',
+  // numGuests: 10
+  numGuests: 0,
+}
+const restaurant2 = {
+  name: 'la Piazza',
+  owner: 'Giovanni Rossi',
+}
+restaurant1.numGuests = restaurant1.numGuests || 10;
+restaurant2.numGuests = restaurant2.numGuests || 10;
+
+restaurant1.numGuests ||= 10;
+restaurant2.numGuests ||= 10;
+console.log(rest1);
+console.log(rest2);
+
 //Objects
 const {sat, ...weekdays} = restaurant.openingHours;
 console.log(weekdays);
