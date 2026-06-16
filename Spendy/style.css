@@ -4,7 +4,13 @@ body{
 }
 
 .balances{
- display: flex;
+    display: flex;
+    gap: 2em;
+}
+.balances .absolute-Balance,.stats{
+    min-height: 270px;
+    padding: 1em;
+    border-radius: 1em;
 }
 .hide{
     display: none;
@@ -21,6 +27,7 @@ body{
 .main-container{
     background-color: white;
     height: 100vh;
+    padding: 1em;
 }
 header{
     display: flex;
@@ -45,6 +52,18 @@ header h2{
 }
 .absolute-Balance{
     background-color: black;
+    width: 40%;
+}
+.stats-container{
+    width: 60%;
+    display: flex;
+    gap: 2em;
+}
+.forExpense{
+    width: 33.3%;
+}
+.forIncome{
+    width: 33.3%;
 }
 h2,h3{
     margin: 0;
