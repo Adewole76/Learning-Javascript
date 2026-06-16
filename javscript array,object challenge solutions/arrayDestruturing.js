@@ -113,8 +113,14 @@ restaurant2.numGuests = restaurant2.numGuests || 10;
 
 restaurant1.numGuests ||= 10;
 restaurant2.numGuests ||= 10;
-console.log(rest1);
+console.log(restauran);
 console.log(rest2);
+
+restaurant1.numGuests ??= 10;
+restaurant2.numGuests ??= 10;
+
+restaurant2.owner = restaurant1.owner && '<ANONYMOUS';
+restaurant2.owner = restaurant2.owner && '<ANONYMOUS';
 
 //Objects
 const {sat, ...weekdays} = restaurant.openingHours;
