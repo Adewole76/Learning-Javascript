@@ -11,6 +11,9 @@ const calculateAverage = (arr) => {
 }
 console.log(calculateAverage(arrOfnum));
 
+
+
+
 //Number greater than 18 challenge
 const numgreaterthan18 = (arr) => {
     const result = [] 

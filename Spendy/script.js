@@ -3,6 +3,7 @@ const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
 const totalAmount = document.querySelector('.total-balances');
 console.log(totalAmount);
+const recentTransaction = document.querySelector('.actual-transactions');
 const updatetotalAmountBtn = document.querySelector('.update-amount-button');
 const updateButton = document.querySelector('.update-button');
 const updateAmountInput = document.querySelector('.update-amount-input');
@@ -22,6 +23,7 @@ console.log(selectExpense);
 const selectIncome = document.querySelector('.incomeCat');
 const incomeContainer = document.querySelector('.income-container');
 const expenseContainer = document.querySelector('.expense-container');
+const recentsContainer = document.querySelector('.recents');
 
 
 
@@ -56,7 +58,7 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         date: new Date()
     }
     
-        transactionsArray.push(transactionObject); 
+        transactionsArray.unshift(transactionObject); 
    //totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
@@ -94,6 +96,7 @@ ExpenseButton.addEventListener('click', function(){
 actualAddtransaction.addEventListener('click', function(){
     addTransaction(transactionType, amountInput.value, description_input.value, CategoryInput.value);
     mappingTransaction();
+    mapRecentTransactions();
     console.log(transactionsArray);
 })
 closeButton.addEventListener('click', function(){
@@ -117,6 +120,32 @@ const mappingTransaction = () => {
     transactionContainer.innerHTML = mappedTransactionsArray;
 };
 mappingTransaction();
+
+
+const recentTransactionArr = transactionsArray.filter(transaction => transactionsArray.indexOf(transaction) <= 3);
+console.log(recentTransactionArr);
+
+
+//Recents Dashboard Mapping
+const mapRecentTransactions = () => {
+    console.log('I am working');
+    const mappedRecentsArr = recentTransactionArr.map(transaction => {
+        const isIncome = transaction.type === 'Income';
+        
+        return `
+            <div class="${isIncome ? 'transaction-income' : 'transaction-expense'}" data-id="${transaction.id}">
+                <p class="${isIncome ? 'income-category' : 'expense-category'}">${transaction.category}</p>
+                <button class="delete-button">Delete</button>
+            </div>
+        `;
+    }).join('');
+    recentTransaction.innerHTML =  mappedRecentsArr;
+};
+mapRecentTransactions()
+console.log(recentTransaction);
+
+
+
 // Delete using event delegation (put this once)
 transactionContainer.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-button')) {
@@ -152,7 +181,7 @@ transactionContainer.addEventListener('click', function(e) {
     }
 });
 
-//for loop for all transaction amounts 
+//for loop for all transactions
 for(let i = 0; i < transactionsArray.length; i++){
     let transactionAmount = Number(transactionsArray[i].amount);
     if(transactionsArray[i].type === 'Income'){
@@ -160,7 +189,7 @@ for(let i = 0; i < transactionsArray.length; i++){
     totalIncome = totalIncome + transactionAmount;
     console.log(totalIncome);
     console.log(totalBalance);
-    }else if(transactionsArray[i].type === 'Expense'){
+    }else if(transactionsArray[i].type === 'Expense' && totalBalance > 0){
     totalBalance = totalBalance - transactionAmount;
     totalExpense = totalExpense + transactionAmount;
     console.log(totalExpense);

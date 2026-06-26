@@ -1,11 +1,32 @@
 body{
     font-family:Arial, Helvetica, sans-serif;
     background-color: Black;
+    position: relative;
+    padding-left: 8em;
 }
-
+.sideBar{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 91%; 
+    background-color:  black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sideBar ul{
+    padding: 0;
+    margin: 0;
+}
+.sideBar ul li{
+    color: white;
+    list-style-type: none;
+}
 .balances{
     display: flex;
     gap: 2em;
+    width: 100%;
 }
 .balances .absolute-Balance,.stats{
     min-height: 270px;
@@ -19,15 +40,16 @@ body{
     color: white;
 }
 .forIncome {
-    background-color: red;
+    background-color:  rgba(223, 126, 223, 0.738);
 }
 .forExpense{
-    background-color: red;
+    background-color:  rgba(144, 224, 100, 0.499);
 }
 .main-container{
     background-color: white;
     height: 100vh;
-    padding: 1em;
+    padding: 3em;
+    border-radius: 3em;
 }
 header{
     display: flex;
@@ -41,6 +63,9 @@ header h2{
 .updownBtn{
     transition: transform 0.15s;
     vertical-align: middle;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: transparent;
   }
   .updownBtn:hover{
     transform: rotate(180deg)
@@ -71,4 +96,30 @@ h2,h3{
   .total-balances{
     color: white;
   }
+
+  .recent-transactions{
+    background-color: red;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    height: 400px;
+    display: flex;
+    padding: 1em;
+  }
+  .recents{
+    width: 65%;
+    background-color: yellow;
+  }
+  .transaction-income, .transaction-expense{
+    width: 100px;
+    height: 200px;
+    background-color: yellow;
+    margin-bottom: 2em;
+}
+.income-category{
+    color: green;
+}
+.expense-category{
+    color: red;
+}
   

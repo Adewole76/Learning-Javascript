@@ -25,7 +25,22 @@
 //   console.log(rest[rest.length - 1],...rest,first) ;
 // };
 // swapFirstandLast([1, 2, 3, 4]);
+const weekDays = ['mon', 'tue', 'wed', 'thur', "fri", 'sat', 'sun']
 
+const openingHous = {
+  [weekDays[3]]:{
+    open:12,
+    close: 22,
+  },
+  [weekDays[4]]:{
+    open: 11, 
+    close: 23,
+  },
+  [weekDays[5]]: {
+    open: 0, //open 24 hoours
+    close: 24,
+  }
+};
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -33,22 +48,10 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Brushetta', 'Garlic', 'Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  order: function(starterIndex, mainIndex){
+  //ES6 advanced Object literals
+  openingHous,
+  order(starterIndex, mainIndex){
     return[this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
-  },
-  openingHours: {
-    thu:{
-      open:12,
-      close: 22,
-    },
-    fri:{
-      open: 11, 
-      close: 23,
-    },
-    sat: {
-      open: 0, //open 24 hoours
-      close: 24,
-    }
   },
   orderDelivery: function({starterIndex =1, mainIndex =0, time="20:00", address}){
    console.log(`Order received: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
@@ -113,17 +116,17 @@ restaurant2.numGuests = restaurant2.numGuests || 10;
 
 restaurant1.numGuests ||= 10;
 restaurant2.numGuests ||= 10;
-console.log(restauran);
-console.log(rest2);
+console.log(restaurant1);
+console.log(restaurant2);
 
 restaurant1.numGuests ??= 10;
 restaurant2.numGuests ??= 10;
 
-restaurant2.owner = restaurant1.owner && '<ANONYMOUS';
-restaurant2.owner = restaurant2.owner && '<ANONYMOUS';
+restaurant2.owner = restaurant1.owner && '<ANONYMOUS>';
+restaurant2.owner = restaurant2.owner && '<ANONYMOUS>';
 
 //Objects
-const {sat, ...weekdays} = restaurant.openingHours;
+const {sat, ...weekdays} = restaurant.openingHous;
 console.log(weekdays);
 restaurant.orderDelivery({
   time: '22:30',
@@ -200,7 +203,7 @@ console.log(menu, starters);
 // console.log(a,b);
 
 //Nested Objects
-const {fri: {open: o, close: c}} = openingHours;
+const {fri: {open: o, close: c}} = openingHous;
 console.log(o, c);
 
 // const arr = [2, 3, 4];
@@ -290,3 +293,23 @@ const user = {
 
 const {name: fullName, ag = 18, country = 'Nigeria'} = user;
 console.log(fullName, ag, country);
+
+const newMen= [...restaurant.starterMenu, ...restaurant.mainMenu];
+for(const item of newMen) console.log(item);
+
+// for(const [1, el] of newMenu.entries()){
+//   console.log(`${item[0] + 1}:${item[el]}`);
+// }
+
+console.log(...newMen.entries());
+
+if(restaurant.openingHous && restaurant.openingHous.mon)
+console.log(restaurant.openingHous.mon.open);
+
+console.log(restaurant.openingHous.mon?.open);
+const Days = ['mon', 'tue', 'wed', 'thur', "fri", 'sat', 'sun'];
+for(const day of Days){
+console.log(day)
+const open = restaurant.openingHous[day]?.open ?? 'closed';
+console.log(`On ${day}, we open at ${open}`);
+}
