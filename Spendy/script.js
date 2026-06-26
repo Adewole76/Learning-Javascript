@@ -24,6 +24,7 @@ const selectIncome = document.querySelector('.incomeCat');
 const incomeContainer = document.querySelector('.income-container');
 const expenseContainer = document.querySelector('.expense-container');
 const recentsContainer = document.querySelector('.recents');
+const insufficientModal = document.querySelector('.insufficient0-balance-modal')
 
 
 
@@ -57,7 +58,9 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         category: transactioncategory,
         date: new Date()
     }
-    
+    if(transactionamount < totalBalance && transactiontype === 'Expense'){
+        insufficientModal.classList.remove('hidden')
+    }
         transactionsArray.unshift(transactionObject); 
    //totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
