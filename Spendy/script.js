@@ -3,6 +3,7 @@ const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
 const totalAmount = document.querySelector('.total-balances');
 console.log(totalAmount);
+const clButton = document.querySelector('.cl-btn');
 const recentTransaction = document.querySelector('.actual-transactions');
 const updatetotalAmountBtn = document.querySelector('.update-amount-button');
 const updateButton = document.querySelector('.update-button');
@@ -20,11 +21,13 @@ const actualAddtransaction = document.querySelector('.add')
 const closeButton = document.querySelector('.close-button');
 const selectExpense = document.querySelector('.ExpenseCat');
 console.log(selectExpense);
+const okayButton = document.querySelector('.okay-btn');
 const selectIncome = document.querySelector('.incomeCat');
 const incomeContainer = document.querySelector('.income-container');
 const expenseContainer = document.querySelector('.expense-container');
 const recentsContainer = document.querySelector('.recents');
-const insufficientModal = document.querySelector('.insufficient0-balance-modal')
+const insufficientModal = document.querySelector('.Insufficient-balance-modal');
+console.log(insufficientModal);
 
 
 
@@ -58,23 +61,36 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         category: transactioncategory,
         date: new Date()
     }
-    if(transactionamount < totalBalance && transactiontype === 'Expense'){
-        insufficientModal.classList.remove('hidden')
-    }
+    if(transactionamount > totalBalance && transactiontype === 'Expense'){
+        insufficientModal.classList.remove('hidden');
+        backDropOverlay.classList.remove('hidden');
+        transactionForm.classList.add('hidden')
+        console.log('i looked at what you wrote here')
+    }else{
         transactionsArray.unshift(transactionObject); 
+    }
    //totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
 }
 
-
+//Button Events
 addTransactionButton.addEventListener('click', function(){
     transactionForm.classList.remove('hidden');
     backDropOverlay.classList.remove('hidden');
 });
 backDropOverlay.addEventListener('click', function(){
     transactionForm.classList.add('hidden'); 
-    backDropOverlay.classList.add('hidden')
+    backDropOverlay.classList.add('hidden');
+    insufficientModal.classList.add('hidden');
+})
+clButton.addEventListener('click', function(){
+    insufficientModal.classList.add('hidden');
+    backDropOverlay.classList.add('hidden');
+})
+okayButton.addEventListener('click', function(){
+    insufficientModal.classList.add('hidden');
+    backDropOverlay.classList.add('hidden');
 })
 
 incomeButton.addEventListener('click', function(){
