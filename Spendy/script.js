@@ -96,6 +96,8 @@ okayButton.addEventListener('click', function(){
 incomeButton.addEventListener('click', function(){
   ExpenseCategory.classList.add('hidden');
   IncomeCategory.classList.remove('hidden');
+  incomeButton.classList.add('active')
+  ExpenseButton.classList.remove('active');
   selectExpense.classList.remove('category-select')
   selectIncome.classList.add('category-select');
   transactionType = 'Income';
@@ -105,6 +107,8 @@ incomeButton.addEventListener('click', function(){
 ExpenseButton.addEventListener('click', function(){
     ExpenseCategory.classList.remove('hidden');
     IncomeCategory.classList.add('hidden');
+    incomeButton.classList.remove('active');
+    ExpenseButton.classList.add('active');
     selectIncome.classList.remove('category-select');
     selectExpense.classList.add('category-select');
     transactionType = 'Expense'
