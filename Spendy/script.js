@@ -134,7 +134,20 @@ const mappingTransaction = () => {
         
         return `
             <div class="${isIncome ? 'transaction-income' : 'transaction-expense'}" data-id="${transaction.id}">
+            <section>
+            <img src="${isIncome ? 'icons/income.png':'icons/expense.png'}">
+            <footer>
+              <p>${transaction.description}</p>
+                <section>
+                <p>${transaction.date}</p>
                 <p class="${isIncome ? 'income-category' : 'expense-category'}">${transaction.category}</p>
+                </section>
+            </footer>
+            </section>
+
+            <section>
+            <p>${isIncome ? '-'+transaction.amount : '+' + transaction.amount}}</p>
+            </section>
                 <button class="delete-button">Delete</button>
             </div>
         `;
@@ -219,6 +232,7 @@ for(let i = 0; i < transactionsArray.length; i++){
     console.log(totalBalance);
     }
 }
+console.log(totalBalance);
 totalAmount.innerHTML = totalBalance;
 incomeContainer.innerHTML = totalIncome;
 expenseContainer.innerHTML = totalExpense;

@@ -1,10 +1,34 @@
 body{
     position: relative;
 }
+.all-important{
+    width: 60%;
+}
+.add-transaction{
+    background-color: black;
+    width: 100%;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 1.5em;
+    font-weight: bold;
+}
+.download-btn{
+  background-color: white;
+  color: black;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid grey;
+  border-radius: 1em;
+}
+.download-img{
+    width: 20px;
+}
 .top-of-form{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid grey;
     padding:1em;
 }
 .top-of-form h2{
@@ -12,6 +36,10 @@ body{
 }
 .top-of-form img{
     width: 20px;
+}
+.top-of-form button{
+    background-color: transparent;
+    border: none;
 }
 .type-toggle{
     margin-top: 1em;
@@ -21,7 +49,7 @@ body{
 }
 .inputs-section{
     padding-left: 1em;
-    padding-right: 1em;
+    padding-right: 2em;
     padding-bottom: 1em;
 }
 form{
@@ -35,6 +63,7 @@ form{
     animation-timing-function: ease-in-out;
     animation-duration: 0.5s;
     border-radius: 1em;
+    font-family: "DM Sans"
 }
 .type-toggle button{
     padding: 0.5em 5em;
@@ -60,19 +89,34 @@ label{
 input{
     display: block;
     width: 100%;
+    margin-top: 5px;
     padding-top: 1em;
     padding-bottom: 1em;
+    padding-left: 1em;
+    border-radius: 3em;
+    border: 1px solid transparent;
+    background-color: rgb(240, 240, 240);
 }
 select{
     display: block;
     width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
+    border-radius: 3em;
+    border: 1px solid transparent;
+    background-color: rgb(240, 240, 240);
+    padding-left: 1em;
+    padding-right: 3em;
 }
 .add{
     width: 100%;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 2em;
+    background-color: black;
+    border: 1px solid transparent;
+    color: white;
+
 }
 .hidden{
     display: none;
@@ -104,18 +148,7 @@ select{
         scale: 1;
     }
 }
-.transaction-income, .transaction-expense{
-    width: 100px;
-    height: 200px;
-    background-color: yellow;
-    margin-bottom: 2em;
-}
-.income-category{
-    color: green;
-}
-.expense-category{
-    color: red;
-}
+
 .active{
     display: block;
 }
