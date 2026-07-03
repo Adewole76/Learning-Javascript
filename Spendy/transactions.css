@@ -4,6 +4,10 @@ body{
 .all-important{
     width: 60%;
 }
+.all-important h4{
+    font-family: "DM Mono";
+    margin: 0;
+}
 .add-transaction{
     background-color: black;
     width: 100%;
@@ -65,6 +69,7 @@ form{
     border-radius: 1em;
     font-family: "DM Sans"
 }
+
 .type-toggle button{
     padding: 0.5em 5em;
     border: 1px solid transparent;
@@ -148,7 +153,24 @@ select{
         scale: 1;
     }
 }
-
+.transaction-income, .transaction-expense{
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+}
+.transaction-icon{
+    width: 50px;
+}
+.important-info{
+    display: flex;
+}
+.important-info p{
+   margin: 0;
+   font-family: "DM Sans";
+}
+.date-category{
+    display: flex;
+}
 .active{
     display: block;
 }
@@ -204,4 +226,10 @@ select{
     padding-bottom: 1em;
     color: white;
     font-family: "DM Sans";
+}
+.income-amount, .expense-amount{
+    margin: 0;
+}
+.amount-deletebtn{
+    display: flex;
 }

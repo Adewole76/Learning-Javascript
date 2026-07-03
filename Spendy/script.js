@@ -59,16 +59,31 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         amount: transactionamount,
         description: transactiondescription,
         category: transactioncategory,
-        date: new Date()
+        date: new Date(),
     }
-    if(transactionamount > totalBalance && transactiontype === 'Expense'){
-        insufficientModal.classList.remove('hidden');
-        backDropOverlay.classList.remove('hidden');
-        transactionForm.classList.add('hidden')
-        console.log('i looked at what you wrote here')
-    }else{
+    transactionObject.month = transactionObject.date.getMonth() + 1
+    
+       
+    if(transactionObject.type === 'Income'){
+        totalBalance = totalBalance + Number(transactionObject.amount);
+        totalIncome = totalIncome + Number(transactionObject.amount);
+        console.log(totalIncome);
+        console.log(totalBalance);
         transactionsArray.unshift(transactionObject); 
-    }
+        }else if(transactionObject.type === 'Expense' && totalBalance > 0 && !(Number(transactionObject.amount) > totalBalance)){
+        totalBalance = totalBalance - Number(transactionObject.amount);
+        totalExpense = totalExpense + Number(transactionObject.amount);
+        console.log(totalExpense);
+        console.log(totalBalance);
+        transactionsArray.unshift(transactionObject); 
+        }else if(Number(transactionObject.amount) > totalBalance && transactiontype === 'Expense'){
+            insufficientModal.classList.remove('hidden');
+            backDropOverlay.classList.remove('hidden');
+            transactionForm.classList.add('hidden')
+            console.log('i looked at what you wrote here')
+            console.log(totalBalance)
+        }
+    console.log(transactionObject.month)
    //totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
@@ -134,21 +149,22 @@ const mappingTransaction = () => {
         
         return `
             <div class="${isIncome ? 'transaction-income' : 'transaction-expense'}" data-id="${transaction.id}">
-            <section>
-            <img src="${isIncome ? 'icons/income.png':'icons/expense.png'}">
-            <footer>
+            <section class="important-info">
+            <img class="transaction-icon" src="${isIncome ? 'icons/income.png':'icons/expenses.png'}">
+            <footer class="description-date-category">
               <p>${transaction.description}</p>
-                <section>
+                <section class="date-category">
                 <p>${transaction.date}</p>
-                <p class="${isIncome ? 'income-category' : 'expense-category'}">${transaction.category}</p>
+                <p class="${isIncome ? 'income-category' : 'expense-category'}">.${transaction.category}</p>
                 </section>
             </footer>
             </section>
 
-            <section>
-            <p>${isIncome ? '-'+transaction.amount : '+' + transaction.amount}}</p>
+            <section class="amount-deletebtn">
+            <p class="${isIncome ? 'income-amount':'expense-amount'}">${isIncome ? '+'+transaction.amount : '-' + transaction.amount}</p>
+            <button class="delete-button">Delete</button>
             </section>
-                <button class="delete-button">Delete</button>
+                
             </div>
         `;
     }).join('');
@@ -218,20 +234,20 @@ transactionContainer.addEventListener('click', function(e) {
 });
 
 //for loop for all transactions
-for(let i = 0; i < transactionsArray.length; i++){
-    let transactionAmount = Number(transactionsArray[i].amount);
-    if(transactionsArray[i].type === 'Income'){
-    totalBalance = totalBalance + transactionAmount;
-    totalIncome = totalIncome + transactionAmount;
-    console.log(totalIncome);
-    console.log(totalBalance);
-    }else if(transactionsArray[i].type === 'Expense' && totalBalance > 0){
-    totalBalance = totalBalance - transactionAmount;
-    totalExpense = totalExpense + transactionAmount;
-    console.log(totalExpense);
-    console.log(totalBalance);
-    }
-}
+// for(let i = 0; i < transactionsArray.length; i++){
+//     let transactionAmount = Number(transactionsArray[i].amount);
+//     if(transactionsArray[i].type === 'Income'){
+//     totalBalance = totalBalance + transactionAmount;
+//     totalIncome = totalIncome + transactionAmount;
+//     console.log(totalIncome);
+//     console.log(totalBalance);
+//     }else if(transactionsArray[i].type === 'Expense' && totalBalance > 0){
+//     totalBalance = totalBalance - transactionAmount;
+//     totalExpense = totalExpense + transactionAmount;
+//     console.log(totalExpense);
+//     console.log(totalBalance);
+//     }
+// }
 console.log(totalBalance);
 totalAmount.innerHTML = totalBalance;
 incomeContainer.innerHTML = totalIncome;
