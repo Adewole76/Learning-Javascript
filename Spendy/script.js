@@ -28,7 +28,8 @@ const expenseContainer = document.querySelector('.expense-container');
 const recentsContainer = document.querySelector('.recents');
 const insufficientModal = document.querySelector('.Insufficient-balance-modal');
 console.log(insufficientModal);
-
+const emptyState = document.querySelector('.empty-state');
+console.log(emptyState)
 
 
 //loading tasks array from localStorage to ensure info persistence
@@ -61,8 +62,8 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
         category: transactioncategory,
         date: new Date(),
     }
-    transactionObject.month = transactionObject.date.getMonth() + 1
-    
+    transactionObject.month = transactionObject.date.toLocaleString('default', { month: 'long' })
+    transactionObject.year = new Date().getFullYear();
        
     if(transactionObject.type === 'Income'){
         totalBalance = totalBalance + Number(transactionObject.amount);
@@ -83,7 +84,8 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
             console.log('i looked at what you wrote here')
             console.log(totalBalance)
         }
-    console.log(transactionObject.month)
+    console.log(transactionObject.month);
+    console.log(transactionObject.year);
    //totalBalance = totalBalance + transactionObject[amount];
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
@@ -154,7 +156,7 @@ const mappingTransaction = () => {
             <footer class="description-date-category">
               <p>${transaction.description}</p>
                 <section class="date-category">
-                <p>${transaction.date}</p>
+                <p>${transaction.month},${transaction.year}</p>
                 <p class="${isIncome ? 'income-category' : 'expense-category'}">.${transaction.category}</p>
                 </section>
             </footer>
@@ -168,8 +170,14 @@ const mappingTransaction = () => {
             </div>
         `;
     }).join('');
-
-    transactionContainer.innerHTML = mappedTransactionsArray;
+   
+    if(mappedTransactionsArray.length === 0 ){
+        emptyState.classList.remove('hidden');
+    }else if(mappedTransactionsArray.length > 0){
+      emptyState.classList.add('hidden');
+    }
+        transactionContainer.innerHTML += mappedTransactionsArray;
+   
 };
 mappingTransaction();
 
