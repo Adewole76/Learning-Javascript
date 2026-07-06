@@ -44,7 +44,9 @@ const description_input = document.querySelector('.description-input');
 let CategoryInput= document.querySelector('.category-select');
 console.log(CategoryInput);
 //user monetary info
-let totalBalance = 0;
+let storeBalance = localStorage.getItem('totalBalance');
+let parsedStoredBalance = JSON.parse(storeBalance)
+let totalBalance = parsedStoredBalance;
 let totalIncome = 0;
 let totalExpense =0;
 
@@ -87,6 +89,7 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
     console.log(transactionObject.month);
     console.log(transactionObject.year);
    //totalBalance = totalBalance + transactionObject[amount];
+   localStorage.setItem('totalBalance', JSON.stringify(totalBalance));
     localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
 }
@@ -107,6 +110,7 @@ clButton.addEventListener('click', function(){
 })
 okayButton.addEventListener('click', function(){
     insufficientModal.classList.add('hidden');
+
     backDropOverlay.classList.add('hidden');
 })
 
@@ -146,6 +150,7 @@ closeButton.addEventListener('click', function(){
 
 
 const mappingTransaction = () => {
+    if(transactionsArray.length > 0){
     const mappedTransactionsArray = transactionsArray.map(transaction => {
         const isIncome = transaction.type === 'Income';
         
@@ -170,13 +175,10 @@ const mappingTransaction = () => {
             </div>
         `;
     }).join('');
-   
-    if(mappedTransactionsArray.length === 0 ){
-        emptyState.classList.remove('hidden');
-    }else if(mappedTransactionsArray.length > 0){
-      emptyState.classList.add('hidden');
-    }
-        transactionContainer.innerHTML += mappedTransactionsArray;
+        transactionContainer.innerHTML = mappedTransactionsArray;
+}else{
+transactionContainer.innerHTML = emptyState.innerHTML;
+}
    
 };
 mappingTransaction();
@@ -234,7 +236,7 @@ const deleteTransaction = (arr) => {
 // Event delegation for delete buttons
 transactionContainer.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-button')) {
-        
+        console.log(transactionsArray)
         // Get the transaction ID from the parent element
         const transactionElement = e.target.closest('.transaction-income, .transaction-expense');
     

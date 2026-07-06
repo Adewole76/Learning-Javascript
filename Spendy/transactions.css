@@ -114,7 +114,11 @@ select{
     padding-right: 3em;
 }
 .empty-state{
-    background-color: blue;
+  width: 100%;
+  padding: 1em;
+}
+.empty-container{
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
