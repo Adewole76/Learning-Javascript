@@ -119,6 +119,9 @@ select{
 }
 .empty-container{
     background-color: white;
+    border: 1px solid grey;
+    margin: 1.5em 0;
+    border-radius: 2em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,6 +245,14 @@ select{
 .income-amount, .expense-amount{
     margin: 0;
 }
+.income-amount{
+    color: rgb(9, 137, 9)
+}
+.expense-amount{
+    color: red;
+}
+
 .amount-deletebtn{
     display: flex;
+    padding: 1em 0;
 }

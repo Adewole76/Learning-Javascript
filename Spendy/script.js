@@ -169,7 +169,7 @@ const mappingTransaction = () => {
 
             <section class="amount-deletebtn">
             <p class="${isIncome ? 'income-amount':'expense-amount'}">${isIncome ? '+'+transaction.amount : '-' + transaction.amount}</p>
-            <button class="delete-button">Delete</button>
+            <footer class="footer-btn"><button class="delete-button">Delete</button></footer>
             </section>
                 
             </div>
