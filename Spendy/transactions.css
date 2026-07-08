@@ -1,8 +1,37 @@
 body{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    background-color: #f8f8f8;
+}
+.main-container{
+    width: 70%;
+}
+.sideBar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 85%;
+    background-color: white;
+    z-index: 1000;
+}
+.sideBar ul{
+  list-style-type: none;
+  padding: 0;
+}
+.sideBar ul li{
+  background-color: #f8f8f8;
+  padding: 1em 0;
+  margin-bottom: 1em;
+}
+.sideBar ul li img{
+    width: 20px;
 }
 .all-important{
-    width: 60%;
+  z-index: 1;
 }
 .all-important h4{
     font-family: "DM Mono";
