@@ -1,11 +1,8 @@
 body{
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding-top: 2em;
     background-color: #f8f8f8;
-    margin-left: 5em;
+    padding-left: 250px;
 }
 .main-container{
     width: 70%;
@@ -87,18 +84,20 @@ body{
     padding-right: 2em;
     padding-bottom: 1em;
 }
-form{
+form {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     width: 400px;
+    max-width: 90%; 
     animation-name: scalein;
     animation-timing-function: ease-in-out;
     animation-duration: 0.5s;
     border-radius: 1em;
-    font-family: "DM Sans"
+    font-family: "DM Sans";
+    z-index: 1002; 
 }
 
 .type-toggle button{
