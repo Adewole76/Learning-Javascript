@@ -1,0 +1,16 @@
+ul{
+    list-style-type: none;
+}
+ul li{
+    padding: 1em;
+    margin-bottom: 1em;
+}
+.blue{
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
