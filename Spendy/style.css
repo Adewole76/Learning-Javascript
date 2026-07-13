@@ -1,62 +1,12 @@
 body{
     font-family:Arial, Helvetica, sans-serif;
 }
-.sideBar{
-}
-.sideBar ul{
-   
-}
-.sideBar ul li{
-    color: white;
-    list-style-type: none;
-}
-.balances{
-    display: flex;
-    gap: 2em;
-    width: 100%;
-}
-.balances .absolute-Balance,.stats{
-    min-height: 270px;
-    padding: 1em;
-    border-radius: 1em;
-}
+
 .hide{
     display: none;
 }
-.total-heading{
-    color: white;
-}
-.forIncome {
-    background-color:  rgba(223, 126, 223, 0.738);
-}
-.forExpense{
-    background-color:  rgba(144, 224, 100, 0.499);
-}
-.main-container{
-    background-color: white;
-    height: 100vh;
-    padding: 3em;
-    border-radius: 3em;
-}
-header{
-    display: flex;
-    justify-content: space-between;
-}
-header h2{
-    margin: 0;
-    font-size: 3rem;
-    font-weight: bold;
-}
-.updownBtn{
-    transition: transform 0.15s;
-    vertical-align: middle;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: transparent;
-  }
-  .updownBtn:hover{
-    transform: rotate(180deg)
-  }
+
+
 .button-section{
     display: flex;
     justify-content: center;

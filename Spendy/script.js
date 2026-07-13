@@ -201,7 +201,6 @@ const mapRecentTransactions = () => {
             </div>
         `;
     }).join('');
-    recentTransaction.innerHTML =  mappedRecentsArr;
 };
 mapRecentTransactions()
 console.log(recentTransaction);
