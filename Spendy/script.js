@@ -213,7 +213,6 @@ const mapRecentTransactions = () => {
 
             <section class="amount-deletebtn">
             <p class="${isIncome ? 'income-amount':'expense-amount'}">${isIncome ? '+'+transaction.amount : '-' + transaction.amount}</p>
-            <footer class="footer-btn"><button class="delete-button">delete</button></footer>
             </section>
                 
             </div>

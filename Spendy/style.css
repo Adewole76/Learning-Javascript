@@ -2,11 +2,33 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     background-color: #f8f8f8
 }
-
+.dashboard-container{
+    max-width: 60%;
+}
 .hide{
     display: none;
 }
 
+.stats-section{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+.stat{
+    padding: 1em;
+    background-color: white;
+    width: 33.3%;
+}
+.forTotalIncome{
+    margin: 0 1em 0 1em;
+}
+.stat header {
+    display: flex;
+    justify-content: space-between;
+}
+.stat header p{
+    margin: 0;
+}
 .stats-img{
     width: 30px;
 }
