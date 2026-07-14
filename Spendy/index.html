@@ -12,25 +12,39 @@
 
 </head>
 <body>
-    <main class="main-container">
        <div class="dashboard-container">
         <header>
             <h4>Overview</h4>
             <h3>Dashboard</h3>
         </header>
         <section class="stats-section">
-            <div class="stat for">
-              
+            <div class="stat forTotalBalance">
+                <header>
+                    <p>Total Balance</p>
+                    <button><img class="stats-img" src="icons/money.png" alt=""></button>
+                </header>
+                  <h5 class="balance-amount"></h5>
             </div>
-            <div>
-
+            <div class="stat forTotalIncome">
+                <header>
+                    <p>Total Income</p>
+                    <button><img class="stats-img" src="icons/income.png" alt=""></button>
+                </header>
+                <h5 class="Income-amount"></h5>
             </div>
-            <div>
-
+            <div class="stat forTotalExpense">
+                    <header>
+                        <p>Total Expenses</p>
+                        <button><img class="stats-img" src="icons/expenses.png" alt=""></button>
+                    </header>
+                    <h5 class="Expense-amount"></h5>
             </div>
         </section>
+
+        <section class="recents-Container">
+
+        </section>
        </div>
-    </main>
       
 <p class="add-transaction hide"></p>
 <p class="overlay hide"></p>
@@ -38,6 +52,8 @@
 <p class="Expense-button hide"></p>
 <p class="add hide"></p>
 <p class="close-button hide"></p>
+<p class="cl-btn hide"></p>
+<p class="okay-btn"></p>
 <p class="transaction-container hide"></p>
 <script src="script.js"></script>
 </body>

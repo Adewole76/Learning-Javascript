@@ -1,7 +1,7 @@
 'use strict'
 const transactionContainer = document.querySelector('.transaction-container');
 const addTransactionButton = document.querySelector('.add-transaction');
-const totalAmount = document.querySelector('.total-balances');
+const totalAmount = document.querySelector('.balance-amount');
 console.log(totalAmount);
 const clButton = document.querySelector('.cl-btn');
 const recentTransaction = document.querySelector('.actual-transactions');
@@ -23,9 +23,11 @@ const selectExpense = document.querySelector('.ExpenseCat');
 console.log(selectExpense);
 const okayButton = document.querySelector('.okay-btn');
 const selectIncome = document.querySelector('.incomeCat');
-const incomeContainer = document.querySelector('.income-container');
-const expenseContainer = document.querySelector('.expense-container');
-const recentsContainer = document.querySelector('.recents');
+const incomeContainer = document.querySelector('.Income-amount');
+console.log(incomeContainer);
+const expenseContainer = document.querySelector('.Expense-amount');
+console.log(expenseContainer);
+const recentsContainer = document.querySelector('.recents-Container');
 const insufficientModal = document.querySelector('.Insufficient-balance-modal');
 console.log(insufficientModal);
 const emptyState = document.querySelector('.empty-state');
@@ -47,6 +49,8 @@ console.log(CategoryInput);
 let storeBalance = localStorage.getItem('totalBalance');
 let parsedStoredBalance = JSON.parse(storeBalance)
 let totalBalance = parsedStoredBalance;
+
+
 let totalIncome = 0;
 let totalExpense =0;
 

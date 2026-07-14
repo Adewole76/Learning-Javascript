@@ -6,57 +6,8 @@ body{
     display: none;
 }
 
+.stats-img{
+    width: 30px;
+}
 
-.button-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.absolute-Balance{
-    background-color: black;
-    width: 40%;
-}
-.stats-container{
-    width: 60%;
-    display: flex;
-    gap: 2em;
-}
-.forExpense{
-    width: 33.3%;
-}
-.forIncome{
-    width: 33.3%;
-}
-h2,h3{
-    margin: 0;
-}
-  .total-balances{
-    color: white;
-  }
-
-  .recent-transactions{
-    background-color: red;
-    width: 100%;
-    margin-top: 2em;
-    margin-bottom: 3em;
-    height: 400px;
-    display: flex;
-    padding: 1em;
-  }
-  .recents{
-    width: 65%;
-    background-color: yellow;
-  }
-  .transaction-income, .transaction-expense{
-    width: 100px;
-    height: 200px;
-    background-color: yellow;
-    margin-bottom: 2em;
-}
-.income-category{
-    color: green;
-}
-.expense-category{
-    color: red;
-}
   
