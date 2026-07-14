@@ -200,14 +200,31 @@ const mapRecentTransactions = () => {
         
         return `
             <div class="${isIncome ? 'transaction-income' : 'transaction-expense'}" data-id="${transaction.id}">
-                <p class="${isIncome ? 'income-category' : 'expense-category'}">${transaction.category}</p>
-                <button class="delete-button">Delete</button>
+            <section class="important-info">
+            <img class="transaction-icon" src="${isIncome ? 'icons/income.png':'icons/expenses.png'}">
+            <footer class="description-date-category">
+              <p>${transaction.description}</p>
+                <section class="date-category">
+                <p>${transaction.month},${transaction.year}</p>
+                <p class="${isIncome ? 'income-category' : 'expense-category'}">.${transaction.category}</p>
+                </section>
+            </footer>
+            </section>
+
+            <section class="amount-deletebtn">
+            <p class="${isIncome ? 'income-amount':'expense-amount'}">${isIncome ? '+'+transaction.amount : '-' + transaction.amount}</p>
+            <footer class="footer-btn"><button class="delete-button">delete</button></footer>
+            </section>
+                
             </div>
         `;
     }).join('');
+    recentsContainer.innerHTML= mappedRecentsArr;
 };
 mapRecentTransactions()
+
 console.log(recentTransaction);
+
 
 
 
