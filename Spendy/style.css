@@ -11,4 +11,23 @@ body{
     width: 30px;
 }
 
+.transaction-income, .transaction-expense{
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+}
+.transaction-icon{
+    width: 50px;
+}
+.important-info{
+    display: flex;
+}
+.important-info p{
+   margin: 0;
+   font-family: "DM Sans";
+}
+.date-category{
+    display: flex;
+}
+
   
