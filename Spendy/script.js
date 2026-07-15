@@ -45,6 +45,7 @@ const amountInput = document.querySelector('.amount-input');
 const description_input = document.querySelector('.description-input');
 let CategoryInput= document.querySelector('.category-select');
 console.log(CategoryInput);
+
 //user monetary info
 let storeBalance = localStorage.getItem('totalBalance');
 let parsedStoredBalance = JSON.parse(storeBalance)
@@ -52,6 +53,8 @@ let totalBalance = parsedStoredBalance;
 
 
 let totalIncome = 0;
+
+
 let totalExpense =0;
 
 
@@ -94,7 +97,8 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
     console.log(transactionObject.year);
    //totalBalance = totalBalance + transactionObject[amount];
    localStorage.setItem('totalBalance', JSON.stringify(totalBalance));
-    localStorage.setItem('transactions', JSON.stringify(transactionsArray));
+   localStorage.setItem('totalIncome', JSON.stringify(totalIncome));
+   localStorage.setItem('transactions', JSON.stringify(transactionsArray));
     console.log(transactionsArray);
 }
 
