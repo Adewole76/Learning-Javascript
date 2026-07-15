@@ -18,6 +18,7 @@ body{
     padding: 1em;
     background-color: white;
     width: 33.3%;
+    border-radius: 1em;
 }
 .forTotalIncome{
     margin: 0 1em 0 1em;
@@ -29,8 +30,12 @@ body{
 .stat header p{
     margin: 0;
 }
+.stats-img-btn{
+    border: 1px solid transparent;
+    border-radius: 1em;
+}
 .stats-img{
-    width: 30px;
+    width: 25px;
 }
 
 .transaction-income, .transaction-expense{
