@@ -36,6 +36,9 @@ body{
     font-family: "DM Mono";
     margin: 0;
 }
+.transaction-container{
+    margin: 1em 0 1em 0;
+}
 .add-transaction{
     background-color: black;
     width: 100%;
@@ -202,6 +205,8 @@ select{
     display: flex;
     background-color: white;
     justify-content: space-between;
+    padding: 1em;
+    border: 1px solid rgba(0,0,0,0.14)
 }
 .transaction-icon{
     width: 50px;
@@ -285,4 +290,7 @@ select{
 .amount-deletebtn{
     display: flex;
     padding: 1em 0;
+}
+.del-img{
+    width: 20px;
 }

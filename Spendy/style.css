@@ -12,6 +12,12 @@ body{
 .dashboard-container{
     width: 60%;
 }
+.Income-amount{
+    color: green;
+}
+.Expense-amount{
+    color: red;
+}
 .hide{
     display: none;
 }
@@ -69,6 +75,14 @@ body{
     display: flex;
     background-color: white;
     justify-content: space-between;
+    padding: 1em;
+    border-bottom: 1px solid rgba(0,0,0,0.14)
+}
+.income-amount{
+    color: green;
+}
+.expense-amount{
+    color: red;
 }
 .transaction-icon{
     width: 50px;

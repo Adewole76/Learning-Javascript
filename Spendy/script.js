@@ -51,11 +51,13 @@ let storeBalance = localStorage.getItem('totalBalance');
 let parsedStoredBalance = JSON.parse(storeBalance)
 let totalBalance = parsedStoredBalance;
 
+let storedIncome= localStorage.getItem('totalIncome');
+let parsedStoredIncome = JSON.parse(storedIncome);
+let totalIncome = parsedStoredIncome;
 
-let totalIncome = 0;
-
-
-let totalExpense =0;
+let storedExpense = localStorage.getItem('totalExpense');
+let parsedStoredExpense = JSON.parse(storedExpense);
+let totalExpense = parsedStoredExpense;
 
 
 //Variable tracking transactions type changes with every
@@ -99,7 +101,8 @@ const addTransaction =(transactiontype, transactionamount, transactiondescriptio
    localStorage.setItem('totalBalance', JSON.stringify(totalBalance));
    localStorage.setItem('totalIncome', JSON.stringify(totalIncome));
    localStorage.setItem('transactions', JSON.stringify(transactionsArray));
-    console.log(transactionsArray);
+   localStorage.setItem('totalExpense', JSON.stringify(totalExpense)); 
+   console.log(transactionsArray);
 }
 
 //Button Events
@@ -150,6 +153,8 @@ actualAddtransaction.addEventListener('click', function(){
     mappingTransaction();
     mapRecentTransactions();
     console.log(transactionsArray);
+    incomeContainer.innerHTML = totalIncome;
+    expenseContainer.innerHTML = totalExpense;
 })
 closeButton.addEventListener('click', function(){
     transactionForm.classList.add('hidden'); 
@@ -177,7 +182,7 @@ const mappingTransaction = () => {
 
             <section class="amount-deletebtn">
             <p class="${isIncome ? 'income-amount':'expense-amount'}">${isIncome ? '+'+transaction.amount : '-' + transaction.amount}</p>
-            <footer class="footer-btn"><button class="delete-button">delete</button></footer>
+            <footer class="footer-btn"><button class="delete-button"><img class="delete-button" src="icons/delete.png"></button></footer>
             </section>
                 
             </div>
@@ -235,6 +240,7 @@ console.log(recentTransaction);
 transactionContainer.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-button')) {
         const transactionDiv = e.target.closest('[data-id]');
+        console.log(transactionDiv);
         const idToDelete = transactionDiv.dataset.id;
 
         // Remove from array
