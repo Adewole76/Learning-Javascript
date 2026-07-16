@@ -9,6 +9,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .dashboard-container{
     width: 60%;
 }
@@ -33,6 +34,10 @@ body{
 .sideBar ul{
   list-style-type: none;
   padding: 0;
+}
+.sideBar a{
+    color: black;
+    text-decoration: none;
 }
 .sideBar ul li{
   background-color: #f8f8f8;
@@ -78,11 +83,20 @@ body{
     padding: 1em;
     border-bottom: 1px solid rgba(0,0,0,0.14)
 }
+.stat-label{
+    color: #87878781;
+    font-size: 14px;
+}
+.balance-amount{
+    font-family: 'DM Mono'
+}
 .income-amount{
     color: green;
+    font-family: 'DM Mono'
 }
 .expense-amount{
     color: red;
+    font-family: 'DM Mono'
 }
 .transaction-icon{
     width: 50px;

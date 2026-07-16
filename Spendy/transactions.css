@@ -21,13 +21,19 @@ body{
   list-style-type: none;
   padding: 0;
 }
+.sideBar a{
+    color: black;
+    text-decoration: none;
+}
 .sideBar ul li{
   background-color: #f8f8f8;
   padding: 1em 0;
   margin-bottom: 1em;
+  font-family: 'DM Sans'
 }
 .sideBar ul li img{
     width: 20px;
+    margin-top: 5px;
 }
 .all-important{
   z-index: 1;
