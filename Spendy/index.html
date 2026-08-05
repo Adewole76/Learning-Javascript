@@ -12,10 +12,16 @@
 
 </head>
 <body>
+    <section class="real-container">
        <div class="dashboard-container">
-        <header>
-            <h4>Overview</h4>
-            <h3>Dashboard</h3>
+        <header class="hamburger-container">
+            <section class="heading-pageName">
+                <h4>Overview</h4>
+                <h3>Dashboard</h3>
+            </section>
+            <div>
+            <button class="sidebar-toggle-btn"><img class="sidebar-image" src="icons/hamburger.png" alt=""></button>
+            </div>
         </header>
         <section class="stats-section">
             <div class="stat forTotalBalance">
@@ -45,6 +51,7 @@
      
         </section>
        </div>
+       </section>
        <section class="sideBar">
         <header>Spendy</header>
         <ul>
@@ -53,7 +60,7 @@
         </ul>
     </section>
 <p class="add-transaction hide"></p>
-<p class="overlay hide"></p>
+<div class="overlay hide"></div>
 <p class="income-button hide"></p>
 <p class="Expense-button hide"></p>
 <p class="add hide"></p>

@@ -32,6 +32,22 @@ const insufficientModal = document.querySelector('.Insufficient-balance-modal');
 console.log(insufficientModal);
 const emptyState = document.querySelector('.empty-state');
 console.log(emptyState)
+const sideBar = document.querySelector('.sideBar')
+const sideBarToggleBtn = document.querySelector('.sidebar-toggle-btn');
+console.log(sideBarToggleBtn);
+sideBarToggleBtn.addEventListener('click', function(){
+    if(sideBar.classList.contains('activel')){
+    sideBar.classList.remove('activel');
+    }else{
+       sideBar.classList.add('activel');
+       backDropOverlay.classList.remove('hidden','hide')
+    }
+
+})
+backDropOverlay.addEventListener('click', function(){
+    sideBar.classList.remove('activel')
+    backDropOverlay.classList.add('hidden', 'hide')
+})
 
 
 //loading tasks array from localStorage to ensure info persistence
