@@ -252,7 +252,11 @@ select{
     padding-top: 1em;
     padding-bottom: 1em;
     background-color: white;
-    font-family: "DM Sans"
+    font-family: "DM Sans";
+
+    width: 90%;               
+    max-width: 450px; 
+    box-sizing: border-box;
 }
 .Insufficient-balance-modal h3{
   margin: 0;
@@ -281,10 +285,12 @@ select{
     padding: 3px;
 }
 .Insufficient-balance-modal .error-info{
-    max-width: 370px; 
+    max-width: 100%;          
+    width: 100%;
     line-height: 25px;
     color: grey;
-
+    box-sizing: border-box;
+    margin: 0 auto;  
 }
 .okay-btn{
     background-color: rgb(203, 42, 42);
@@ -312,4 +318,27 @@ select{
 }
 .del-img{
     width: 20px;
+}
+
+@media (max-width: 429px) {
+    body{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .main-container{
+        width: 100%;
+    }
+    .all-important{
+        width: 100%;
+    }
+    
+}
+@media (max-width: 400px) {
+    .type-toggle button{
+        padding: 0.5em 3em;
+    }
+}
+.sidebar-toggle-btn{
+    background-color: transparent;
+    border: 1px solid transparent;
 }
