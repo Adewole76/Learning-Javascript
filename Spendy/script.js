@@ -312,21 +312,6 @@ totalAmount.innerHTML = totalBalance;
 incomeContainer.innerHTML = totalIncome;
 expenseContainer.innerHTML = totalExpense;
 console.log(totalAmount.innerHTML);
-function convertToCSV(objArray) {
-  // 1. Extract headers (keys) from the first object
-  const headers = Object.keys(transactionsArray[0]);
-  const csvRows = [headers.join(',')]; // Add header row
-
-  // 2. Loop over the array of objects
-  for (const row of transactionsArray) {
-    const values = headers.map(header => {
-      const escapeValue = ('' + row[header]).replace(/"/g, '""'); // Escape inner quotes
-      return `"${escapeValue}"`; // Wrap in quotes to safely handle commas
-    });
-    csvRows.push(values.join(','));
-  }
-
-  // 3. Join all rows with newlines
-  return csvRows.join('\n');
-}
+const headers = ['Date','Description', 'Category', 'Amount'];
+const headerRow = headers.join(',') + '\n';
 
