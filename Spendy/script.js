@@ -34,6 +34,7 @@ const emptyState = document.querySelector('.empty-state');
 console.log(emptyState)
 const sideBar = document.querySelector('.sideBar')
 const sideBarToggleBtn = document.querySelector('.sidebar-toggle-btn');
+const downloadBtn = document.querySelector('.download-btn');
 console.log(sideBarToggleBtn);
 sideBarToggleBtn.addEventListener('click', function(){
     if(sideBar.classList.contains('activel')){
@@ -307,10 +308,54 @@ transactionContainer.addEventListener('click', function(e) {
 //     console.log(totalBalance);
 //     }
 // }
+
+
+
+
+function downloadCSV(jsonData, filename = "export.csv") {
+  const headers = Object.keys(jsonData[0]).join(",");
+  
+  const rows = jsonData.map(row => 
+    Object.values(row)
+      .map(value => {
+        let strValue = String(value);
+        if (strValue.includes(",") || strValue.includes('"')) {
+          strValue = `"${strValue.replace(/"/g, '""')}"`;
+        }
+        return strValue;
+      })
+      .join(",")
+  );
+
+  const csvContent = [headers, ...rows].join("\n");
+
+  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  // 4. Trigger programmatic download
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", filename);
+  link.style.visibility = "hidden";
+  
+  document.body.appendChild(link);
+  link.click();
+  
+  // 5. Clean up the DOM and memory
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+console.log(downloadBtn)
+downloadBtn.addEventListener('click', function(){
+    downloadCSV(transactionsArray, "users_list.csv");
+})
+
+
+
 console.log(totalBalance);
-totalAmount.innerHTML = totalBalance;
-incomeContainer.innerHTML = totalIncome;
-expenseContainer.innerHTML = totalExpense;
+totalAmount.innerHTML = totalBalance?totalBalance:0;
+incomeContainer.innerHTML = totalIncome?totalIncome:0;
+expenseContainer.innerHTML = totalExpense?totalExpense:0;
 console.log(totalAmount.innerHTML);
 const headers = ['Date','Description', 'Category', 'Amount'];
 const headerRow = headers.join(',') + '\n';

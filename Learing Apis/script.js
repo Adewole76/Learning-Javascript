@@ -41,3 +41,16 @@ fetchQuote().then((result)=> console.log(`title:${result.text} author: ${result.
   .finally(() => {
     console.log("Done, either way"); 
   });
+
+const getQuote = async () => {
+   try {
+    const result = await fetchQuote();
+    console.log(result);
+   } catch (error) {
+    console.log(error);
+   }finally{
+    console.log('done either way')
+   }
+};
+
+getQuote()
